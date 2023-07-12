@@ -1,0 +1,6 @@
+@import './desktop-navbar.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

@@ -1,0 +1,17 @@
+@layer components {
+    .hover-white:hover {
+        color: white;
+    }
+
+}
+
+
+aside {
+    container: ;
+    /* clamp:'' */
+    /* width: clamp(10rem, 0rem, 20rem); */
+}
+
+
+
+
