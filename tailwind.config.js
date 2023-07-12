@@ -12,6 +12,7 @@ module.exports = {
         'spotify-black': {
           100: '#212121',
           200:'#121212',
+          300:'rgba(22, 22, 23, .8)',
         },
         'spotify-gray': {
           100:'#535353',
