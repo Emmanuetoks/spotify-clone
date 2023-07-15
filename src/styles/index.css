@@ -1,4 +1,8 @@
 @import './desktop-navbar.css';
+@import './library.css';
+@import './home.css';
+@import './footer.css';
+
 
 @tailwind base;
 @tailwind components;

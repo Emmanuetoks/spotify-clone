@@ -1,17 +1,29 @@
 @layer components {
-    .hover-white:hover {
-        color: white;
+  .hover-white:hover {
+    color: white;
+  }
+
+  @media (max-width: 800px) {
+    .sidebar {
+      nav,
+      .library {
+        h5,
+        .remove-on-collapse {
+          display: none;
+        }
+      }
     }
+  }
 
+  .collapse-sidebar {
+    nav,
+    .library {
+      h5,
+      .remove-on-collapse {
+        display: none;
+      }
+    }
+    min-width: 5rem !important;
+    width: 5rem !important;
+  }
 }
-
-
-aside {
-    container: ;
-    /* clamp:'' */
-    /* width: clamp(10rem, 0rem, 20rem); */
-}
-
-
-
-

@@ -6,7 +6,7 @@ type Props = {
 };
 const Divider = ({ color, className }: Props) => {
   const tailwindPossibles = [color, className];
-  return <hr className={`w-full border-${color} h-[0px] ${className}`} />;
+  return <hr className={`w-full border-spotify-gray-100 h-[0px] bg-spotify-gray-100 ${className}`} />;
 };
 
 export default Divider;
