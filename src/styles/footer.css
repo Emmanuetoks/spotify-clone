@@ -1,0 +1,9 @@
+@layer components {
+    .footer__main-links>ul a{
+        @apply hover:text-white hover:underline underline-offset-2;
+    }
+
+    .footer__other-links > ul a{
+        @apply hover:text-white;
+    }
+}
