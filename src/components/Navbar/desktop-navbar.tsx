@@ -5,7 +5,7 @@ import { GoHome } from "react-icons/go";
 
 const DesktopNavBar = () => {
   return (
-    <aside className="sidebar w-[5rem] hidden sm:flex flex-col gap-2 min-[800px]:min-w-[13rem] min-[800px]:w-[20rem] min-[800px]:max-w-[50rem] resize-x">
+    <aside className="sidebar min-w-[5rem] hidden sm:flex flex-col gap-2 min-[800px]:min-w-[14.37rem] min-[800px]:w-[25rem] min-[800px]:max-w-[50rem] resize-x overflow-y-auto">
       <nav className=" bg-spotify-black-200 rounded-md">
         <div className="py-5 px-5 space-y-6 text-spotify-gray-200 font-medium">
           <div className="hover-white pl-1">
@@ -16,6 +16,8 @@ const DesktopNavBar = () => {
               <GoHome size={"2rem"} />
               <h5>Home</h5>
             </Link>
+
+
           </div>
           <div className="hover-white pl-1">
             <Link

@@ -4,7 +4,7 @@ import FilterPlayList from './filter-playlist'
 import Search from './search-library'
 import { BiLibrary } from 'react-icons/bi'
 import Link from 'next/link'
-import CreatePlayListBtn from "./create-playlist";
+import AddPlayList from './create-playlist'
 const toggleCollapse = () => {
     document.querySelector('aside.sidebar')?.classList.toggle('collapse-sidebar')
   }
@@ -14,8 +14,9 @@ const Header = () => {
         <div className="flex items-center w-full justify-between">
           <Link
             href={"#"}
+            data-popup-info='Hellow orld'
             onClick={toggleCollapse}
-            className="nav-link flex gap-4 items-center hover-white cursor-pointer px-2"
+            className="nav-link flex gap-4 items-center hover-white cursor-pointer px-2 popup-info-candidate"
           >
             <BiLibrary size={"2rem"} />
 
@@ -23,7 +24,7 @@ const Header = () => {
           </Link>
 
           <div className="remove-on-collapse">
-            <CreatePlayListBtn />
+            <AddPlayList />
           </div>
         </div>
 

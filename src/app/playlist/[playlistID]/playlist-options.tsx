@@ -1,30 +1,31 @@
 "use client";
 import DialogBox from "@/components/ui/DialogBox";
 import OptionsButton from "@/components/ui/option-button";
-import React from "react";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
+import EditPlayList from "./edit-playlist";
+import { Popper } from "@mui/material";
 
-const PlayListOptions = () => {
+const PlayListOptions = ({ openModal }: { openModal: () => void }) => {
+  const playListOptionsBtn = useRef<HTMLButtonElement | null>(null);
+  const [openPopper, setOpenPopper] = useState<boolean>(false);
   return (
-    <DialogBox>
-      <DialogBox.Button nameOfBoxItOpens="playListOptions">
+    <>
+      <button
+        ref={playListOptionsBtn}
+        className=""
+        onClick={() => setOpenPopper((preVal) => !preVal)}
+      >
         <OptionsButton borderColor="bg-spotify-gray-200" />
-      </DialogBox.Button>
-      <DialogBox.Box dialogBoxName="playListOptions">
-        <ButtonsBox />
-      </DialogBox.Box>
-    </DialogBox>
+      </button>
+      <Popper open={openPopper} anchorEl={playListOptionsBtn.current} disablePortal={true} placement="top-start">
+        <div className={'bg-spotify-black-400 p-1 rounded'}>
+          <button className="text-white font-normal p-2 hover:bg-spotify-gray-100 rounded" onClick={openModal}>
+            Edit PlayList
+          </button>
+        </div>
+      </Popper>
+    </>
   );
 };
 
-const ButtonsBox = ({ closeFunction }: { closeFunction?: any }) => {
-  const handleClixk = () => {
-    closeFunction();
-  };
-
-  return (
-    <div>
-      <button onClick={handleClixk}>Edit PlayList</button>
-    </div>
-  );
-};
 export default PlayListOptions;

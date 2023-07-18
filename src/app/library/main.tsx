@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useReducer } from "react";
-import Search from "./search-library";
-import FilterPlayList from "./filter-playlist";
+import React, { useEffect, useCallback,useRef } from "react";
+
 import PlaylistCard from "./playlist-card";
 import { usePlayLists } from "@/context/playlist-context";
-import { PlayListContextType, PlayListsArray } from "../../../types/playlist";
-import CreatePlayListBtn from "./create-playlist";
+import { PlayListContextType } from "../../../types/playlist";
 import Link from "next/link";
 
 const PlaylistMain = () => {
@@ -25,8 +23,8 @@ const PlaylistMain = () => {
       <main className="flex flex-wrap gap-3 sm:block place-items-center">
         {playLists.length === 0
           ? <div className="remove-on-collapse">No Playlist</div>
-          : playLists.map((playList) => (
-            <Link key={playList.name} href={`/playlist/${playList.name}`}>
+          : playLists.map((playList, index) => (
+            <Link key={playList.playlist_id} href={`/playlist/${playList.playlist_id}?id=${index}`}>
               <PlaylistCard  name={playList.name} />
             </Link>
             ))}

@@ -11,4 +11,6 @@ export type PlayListAction = {
 
 export type PlaylistCard = {
   name:string;
+  playlist_id:string ;
+  description?:string;
 } //Playlist Type 

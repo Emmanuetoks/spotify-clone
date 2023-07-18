@@ -4,11 +4,11 @@ import OptionsButton from "@/components/ui/option-button";
 import React from "react";
 import PlayListOptions from "./playlist-options";
 
-const Main = () => {
+const Main = ({openModal}:{openModal:() => void}) => {
   return (
-    <main className="playlist__main bg-spotify-black-100">
+    <main className="playlist__main bg-spotify-black-600 w-full flex-grow p-7">
       <div className="space-y-3">
-        <PlayListOptions />
+        <PlayListOptions openModal={openModal} />
         <div className="mt-5">
           <Divider />
           Play

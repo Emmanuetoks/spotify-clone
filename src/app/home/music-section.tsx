@@ -11,7 +11,9 @@ const MusicSection = () => {
   Show all
 </Link>
       </div>
-    <div className="flex justify-between gap-3">
+    <div className="home__music-section flex sm:max-h-[17rem] overflow-y-hidden sm:grid gap-3 ">
+      <SongCard />
+      <SongCard />
       <SongCard />
       <SongCard />
       <SongCard />

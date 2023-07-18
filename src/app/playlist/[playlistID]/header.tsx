@@ -1,20 +1,30 @@
-import React from 'react'
+"use client";
+import { usePlayLists } from "@/context/playlist-context";
+import { useSearchParams } from "next/navigation";
+import React, { Suspense } from "react";
+import { PlayListContextType } from "../../../../types/playlist";
 
-const Header = () => {
+const Header = ({openModal}:{openModal:() => void}) => {
+  const playListId = useSearchParams().get("id") as string;
+  const[playLists] = usePlayLists() as PlayListContextType
+
   return (
-    <header className='playlist__header pt-5 pb-3 px-7'>
-    <div className='flex flex-col sm:flex-row items-center sm:items-end gap-3 w-fulll'>
-      <div className='user__playlist-cover w-[10rem] aspect-square bg-spotify-black-100'>
+    <Suspense>
+      <header className="playlist__header pt-20 pb-3 px-7 w-full">
+        <div className="flex flex-col sm:flex-row items-center sm:items-end gap-3 w-full">
+          <div className="user__playlist-cover w-[40%] aspect-square bg-spotify-black-400"></div>
 
-      </div>
+          <div className="user__playlist-details text-white space-y-3 w-full">
+            <p className="hidden sm:blocktext-xs font-medium">Playlist</p>
+            <h1 onClick={openModal} className="text-normal sm:text-7xl font-bold cursor-pointer">
+              {playLists[Number(playListId)]?.name}
+            </h1>
+            <p className="text-xs font-medium">User</p>
+          </div>
+        </div>
+      </header>
+    </Suspense>
+  );
+};
 
-      <div className='user__playlist-details text-white space-y-3 w-full'>
-        <p className='hidden sm:blocktext-xs font-medium'>Playlist</p>
-        <h1 className='text-normal sm:text-7xl  font-bold'>My Playlist #3</h1>
-        <p className='text-xs font-medium'>User</p>
-      </div>
-    </div>
-  </header>  )
-}
-
-export default Header
+export default Header;

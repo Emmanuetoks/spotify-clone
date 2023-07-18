@@ -45,7 +45,7 @@ const Button = ({
 
   const handleDialogBoxState = () => {
     setDialogBoxOpen(!dialogBoxOpen);
-    console.log('PreviouslyOpenBox',openDialogBox, nameOfBoxItOpens);
+    // console.log('PreviouslyOpenBox',openDialogBox, nameOfBoxItOpens);
     
     dialogBoxOpen ? openFunction(nameOfBoxItOpens) : openFunction("");
   };
@@ -70,8 +70,8 @@ const Box = ({
     closeFunction: () => void;
   };
 
-  console.log(openDialogBox === dialogBoxName, dialogBoxName);
-  console.log('AfterOpenClick',openDialogBox, dialogBoxName);
+  // console.log(openDialogBox === dialogBoxName, dialogBoxName);
+  // console.log('AfterOpenClick',openDialogBox, dialogBoxName);
   
   if (dialogBoxName !== openDialogBox) return null;
   return cloneElement(children, {closeFunction: () => closeFunction()}) ;
