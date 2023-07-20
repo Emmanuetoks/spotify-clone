@@ -2,8 +2,6 @@
 import React from 'react'
 import FilterPlayList from './filter-playlist'
 import Search from './search-library'
-import { BiLibrary } from 'react-icons/bi'
-import Link from 'next/link'
 import AddPlayList from './create-playlist'
 import SpLibraryV1 from '@/components/icons/SpSearchLibraryV1'
 const toggleCollapse = () => {
@@ -13,8 +11,7 @@ const Header = () => {
   return (
     <header className="space-y-4">
         <div className="flex items-center w-full justify-between">
-          <Link
-            href={"#"}
+          <button
             data-popup-info='Hellow orld'
             onClick={toggleCollapse}
             className="nav-link flex gap-4 items-center hover-white cursor-pointer px-2 popup-info-candidate"
@@ -22,7 +19,7 @@ const Header = () => {
             {/* <BiLibrary size={"2rem"} /> */}
           <SpLibraryV1 className='fill-white'/>
             <h5>Your Library</h5>
-          </Link>
+          </button>
 
           <div className="remove-on-collapse">
             <AddPlayList />

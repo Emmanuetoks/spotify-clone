@@ -13,7 +13,7 @@ type Props = {
 const SongCard = ({imgSrc, ImgAlt}:Props) => {
   return (
     <>
-    <figure className="min-w-[5rem] max-w-[7rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer">
+    <figure className="min-w-[5rem] max-w-[7rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group/sp-song-card">
       <div className="relative card-cover w-full aspect-square bg-white">
         <Image src={imgSrc} fill={true} alt={ImgAlt}/>
       </div>
@@ -24,6 +24,9 @@ const SongCard = ({imgSrc, ImgAlt}:Props) => {
           Lorem ipsum dolor sit amet consectetur
         </p>
       </figcaption>
+
+      <div className="spotify-song-card__play-button hidden bg-spotify-green-100 w-5 aspect-square rounded-full absolute top-[60%] right-0 transition group/sp-song-card-hover:flex">
+      </div>
     </figure>
       {/* <Mobile /> */}
     </>
