@@ -18,7 +18,7 @@ const PlayListOptions = ({ openModal }: { openModal: () => void }) => {
         <OptionsButton borderColor="bg-spotify-gray-200" />
       </button>
       <Popper open={openPopper} anchorEl={playListOptionsBtn.current} disablePortal={true} placement="top-start">
-        <div className={'bg-spotify-black-400 p-1 rounded'}>
+        <div className={'bg-spotify-black-700 p-1 rounded'}>
           <button className="text-white font-normal p-2 hover:bg-spotify-gray-100 rounded" onClick={openModal}>
             Edit PlayList
           </button>

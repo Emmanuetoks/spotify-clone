@@ -1,5 +1,6 @@
-import PlayListContextProvider from "@/context/playlist-context";
+import SplitPane from "react-split-pane";
 
+import PlayListContextProvider from "@/context/playlist-context";
 type Props = {
   children: React.ReactNode;
 };
@@ -7,8 +8,11 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div className="flex w-full bg-black sm:p-2 gap-2 absolute inset-0 overflow-x-hidden">
-      <PlayListContextProvider>{children}</PlayListContextProvider>
-    </div>
+      <PlayListContextProvider>
+
+          {children}
+      </PlayListContextProvider>
+     </div>
   );
 };
 

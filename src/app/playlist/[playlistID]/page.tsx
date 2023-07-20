@@ -20,7 +20,7 @@ const Playlist = () => {
     const closeModal = () => setOpenEditModal(false);
     const openModal = () => setOpenEditModal(true);
   return (
-    <div className='playlist bg-gradient-to-b from-spotify-black-700 from-10% to-spotify-black-500 to-30% min-h-[100vh] flex flex-col w-full'>
+    <div className='playlist bg-gradient-to-b from-spotify-gray-300 from-10% to-spotify-black-900 to-30% min-h-[100vh] flex flex-col w-full'>
     
      <Header openModal={openModal}/>
       <Main openModal={openModal}/>

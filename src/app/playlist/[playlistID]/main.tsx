@@ -6,15 +6,17 @@ import PlayListOptions from "./playlist-options";
 
 const Main = ({openModal}:{openModal:() => void}) => {
   return (
-    <main className="playlist__main bg-spotify-black-600 w-full flex-grow p-7">
+    <main className="playlist__main w-full flex-grow p-7">
       <div className="space-y-3">
         <PlayListOptions openModal={openModal} />
-        <div className="mt-5">
+        <div className="pt-10 space-y-3">
           <Divider />
-          Play
+          <h3 className="text-white font-bold text-xl">Let find something for your playlist</h3>
         </div>
 
-        <div className="flex justify-between"></div>
+        <div className="playlist__songs flex justify-between bg-spotify-black-200">
+
+        </div>
       </div>
     </main>
   );
