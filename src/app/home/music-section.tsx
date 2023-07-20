@@ -1,9 +1,10 @@
 import SongCard from "@/components/cards/song-card"
 import Link from "next/link"
+import dummyImage1 from '@/images/spotify-test-image-1.jfif'
 
 const MusicSection = () => {
   return (
-    <section className="spotify__music__section space-y-4 w-full">
+    <section className="home__music-section space-y-4 w-full">
       <div className="flex w-full justify-between items-center">
     <h2 className="text-2xl font-semibold text-white">Focus</h2>
 
@@ -11,7 +12,7 @@ const MusicSection = () => {
   Show all
 </Link>
       </div>
-    <div className="home__music-section flex sm:max-h-[17rem] overflow-y-hidden sm:grid gap-3 ">
+    <div className="home__card-container">
       <SongCard />
       <SongCard />
       <SongCard />
