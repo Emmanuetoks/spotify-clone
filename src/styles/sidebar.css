@@ -1,0 +1,60 @@
+@layer components {
+  .collapsed-sidebar {
+    nav,
+    .Library--desktop {
+      h5,
+      .remove-on-collapse {
+        @apply hidden;
+      }
+    }
+
+    .Library__collapse-controllers > svg:nth-child(2) {
+      @apply block;
+    }
+    .Library__collapse-controllers > svg:nth-child(1) {
+      @apply hidden;
+    }
+    /* @apply min-w-[5rem] w-[5rem]; */
+    min-width: 5rem !important;
+    width: 5rem !important;
+  }
+  aside.sidebar {
+    container-type: inline-size;
+    container-name: sidebar;
+  }
+
+  @container sidebar (max-width: 5rem) {
+    .nav-link,
+    .Library__modification-tools {
+      @apply flex justify-center;
+    }
+
+    .Library--desktop {
+      @apply px-[0.5rem];
+    }
+  }
+
+  @container sidebar (min-width: 30rem) {
+    .sidebar .Library__size-togglers button:last-child {
+      @apply block;
+      /* display: block !important; */
+    }
+    .sidebar .Library__size-togglers button:first-child {
+      @apply hidden;
+      /* display: none !important; */
+    }
+
+    
+  }
+  @media (max-width: 800px) {
+    .sidebar {
+      nav,
+      .Library--desktop {
+        h5,
+        .remove-on-collapse {
+          display: none;
+        }
+      }
+    }
+  }
+}

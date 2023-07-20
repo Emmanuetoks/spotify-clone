@@ -1,0 +1,38 @@
+@layer components {
+.edit-modal #playlistName::before {
+  content: "Name";
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 5%;
+  transform: translateY(-55%);
+}
+
+.playlist-page {
+  container-type: inline-size;
+  container-name: playlist-page;
+}
+
+@container playlist-page (max-width: 60rem) {
+  .playlist-page header h1 {
+    @apply text-7xl
+  }
+}
+@container playlist-page (max-width: 50rem) {
+  .playlist-page header h1 {
+    @apply text-6xl
+  }
+}
+@container playlist-page (max-width: 45rem) {
+  .playlist-page header h1 {
+    @apply text-5xl pb-0;
+  }
+}
+
+
+.Resizer.vertical {
+  height: 100%;
+  width: 10px;
+  background-color: black;
+}
+}

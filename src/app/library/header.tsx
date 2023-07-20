@@ -18,26 +18,30 @@ const Header = () => {
     console.log(target);
     const desktopLibrary = document.querySelector(".sidebar");
 
-    switch (target.dataset) {
-      case "grid":
+    switch (target.dataset.libraryExpand) {
+      case "true":
         desktopLibrary?.classList.add("Library--desktop--expand");
         break;
-      case "list":
+      case "false":
         desktopLibrary?.classList.remove("Library--desktop--expand");
         break;
-      default:
-        break;
     }
-
   };
 
   const toggleLibraryLayout: MouseEventHandler = (
     e: React.BaseSyntheticEvent
   ) => {
-    if (e.target.dataset.libraryLayout === "grid") {
+    const desktopLibrary = document.querySelector(".sidebar");
+
+    switch (e.target.dataset.libraryLayout) {
+      case "grid":
+        desktopLibrary?.classList.add("Library__layout--grid");
+        break;
+
+      case "list":
+        desktopLibrary?.classList.remove("Library__layout--grid");
+        break;
     }
-    //Remove flex Add grid,
-    //Remove grid
   };
   return (
     <header className="space-y-4">
@@ -53,25 +57,25 @@ const Header = () => {
         </button>
 
         <div className="remove-on-collapse flex gap-2">
-          <div className="library__layout-controller">
-            <button data-library-layout="grid" className="">
-              grid
+          <div className="library__layout-controllers">
+            <button onClick={toggleLibraryLayout} data-library-layout="grid" className="">
+              list
             </button>
-            <button data-library-layout="list" className="hidden">
-              row
+            <button onClick={toggleLibraryLayout} data-library-layout="list" className="hidden">
+              gird
             </button>
           </div>
           <AddPlayList />
           <div className="Library__size-controllers">
             <button
-              data-library-width="expand"
+              data-library-expand="true"
               onClick={toggleLibraryExpand}
               className="Library__expand-btn"
             >
               {"->"}
             </button>
             <button
-              data-library-width="normal"
+              data-library-expand="false"
               onClick={toggleLibraryExpand}
               className="Library__collapse-btn hidden"
             >

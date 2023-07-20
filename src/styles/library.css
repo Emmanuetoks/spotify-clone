@@ -1,15 +1,29 @@
 @layer components {
-    .Library--desktop--expand {
-        width: 150% !important;
+  .Library--desktop--expand {
+    width: 150% !important;
+  }
+
+  .Library__main--row-layout {
+    @apply flex;
+  }
+
+  @container sidebar (min-width: 30rem) {
+    .Library__size-togglers button:last-child {
+      @apply block;
+    }
+    .Library__size-togglers button:first-child {
+      @apply hidden;
     }
 
-
-    .Library__main--row-layout {
-     @apply flex;
+    .Library__layout--grid {
+        @apply grid ;
+    
+      .library__layout-controllers :first-child {
+        @apply hidden;
+      }
+      .library__layout-controllers :last-child {
+        @apply block;
+      }
     }
-
-
-    .Library__main--grid-layout {
-
-    }
+  }
 }
