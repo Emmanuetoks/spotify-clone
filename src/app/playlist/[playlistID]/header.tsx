@@ -13,7 +13,7 @@ const Header = ({openModal}:{openModal:() => void}) => {
     <Suspense>
       <header className="playlist__header pt-20 pb-3 px-7 w-full">
         <div className="flex flex-col sm:flex-row items-center sm:items-end gap-4 w-full">
-          <div className="user__playlist-cover w-[15rem] aspect-square bg-spotify-black-400 flex justify-center items-center">
+          <div className="user__playlist-cover w-[15rem] aspect-square bg-spotify-black-400 grid place-center">
             <SpMusicNote  className="fill-white"/>
           </div>
 

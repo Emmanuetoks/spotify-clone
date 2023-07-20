@@ -7,7 +7,7 @@ type Props = {
 const PlaylistCard = ({ name }: Props) => {
   return (
     <div className="library__user-playlist-card sm:flex w-fit sm:w-auto flex-col sm:flex-row gap-3 items-center cursor-pointer hover:bg-spotify-black-100 p-2 rounded-md space-y-3 sm:space-y-0 flex-shrink sidebar__icon active:bg-black">
-      <div className="w-24 sm:w-14 aspect-square bg-spotify-gray-100 user-playlist-cover rounded flex justify-center items-center">
+      <div className="w-24 sm:w-14 aspect-square bg-spotify-gray-100 user-playlist-cover rounded grid place-items-center">
         <SpMusicNote className="fill-white" />
       </div>
 

@@ -4,14 +4,13 @@ import DesktopLibrary from "@/app/library/desktop-library";
 import { GoHome } from "react-icons/go";
 import {BiSearchAlt} from 'react-icons/bi'
 import { createPortal } from "react-dom";
-import DesktopNavBar from "./desktop-navbar";
 import MobileNavBar from "./mobile-navbar";
+import SideBar from "./sidebar";
 const Index = () => {
   return (
     <>
-      <DesktopNavBar />
-      <MobileNavBar />
-      
+      <SideBar />
+      <MobileNavBar />  
     </>
   );
 };

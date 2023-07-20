@@ -1,6 +1,15 @@
 @layer components {
-    .library__main main{
-        /* border-radius: 50%; */
-        /* outline: 5px solid; */
+    .Library--desktop--expand {
+        width: 150% !important;
+    }
+
+
+    .Library__main--row-layout {
+     @apply flex;
+    }
+
+
+    .Library__main--grid-layout {
+
     }
 }

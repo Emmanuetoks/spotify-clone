@@ -1,8 +1,9 @@
 @import "./desktop-navbar.css";
 @import "./library.css";
-@import "./home.css";
+@import "./home-page.css";
 @import "./footer.css";
-
+@import './playlist-page.css';
+@import './sidebar.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +14,7 @@ To make an elemnt have a popup info, simply add a popup-into data attribute and 
 
 @layer components {
   .popup-info-candidate {
-    position: relative;
+    @apply relative;
   }
   .popup-info-candidate:hover::after {
     content: attr(data-popup-info);
