@@ -25,7 +25,7 @@ const SongCard = ({imgSrc, ImgAlt}:Props) => {
         </p>
       </figcaption>
 
-      <div className="spotify-song-card__play-button hidden bg-spotify-green-100 w-5 aspect-square rounded-full absolute top-[60%] right-0 transition group/sp-song-card-hover:flex">
+      <div className="spotify-song-card__play-button hidden bg-spotify-green-100 w-5 aspect-square rounded-full absolute top-[60%] right-0 transition place-center group/sp-song-card-hover:grid">
       </div>
     </figure>
       {/* <Mobile /> */}
