@@ -20,7 +20,7 @@ const PlaylistMain = () => {
 
   return (
     <div className="library__main">
-      <main className="flex flex-wrap gap-3 sm:block place-items-center">
+      <main className="flex flex-wrap gap-3 sm:block place-items-center overflow-y-auto">
         {playLists.length === 0
           ? <div className="remove-on-collapse">No Playlist</div>
           : playLists.map((playList, index) => (

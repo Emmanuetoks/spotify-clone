@@ -7,26 +7,28 @@ import { nanoid } from "nanoid";
 import { Popper } from "@mui/material";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 import SpMusicNoteWithAdd from "@/components/icons/SpMusicNoteWithAdd";
+import ContextMenu from "@/components/ui/context-menu";
+
 const AddPlayList = ({ openFunction }: { openFunction?: any }) => {
   const [openPopper, setOpenPopper] = useState<boolean>(false);
   const addBtn = useRef<null | HTMLButtonElement>(null);
   return (
-    <>
+    <div className="w-6 place-items-center hover:text-white aspect-square rounded-full hover:bg-spotify-black-100 active:bg-black outline-transparent outline-2 hover:outline-spotify-black-100 active:outline-black outline grid">
       <button
         ref={addBtn}
         onClick={() => setOpenPopper((prevVal) => !prevVal)}
-        className="library__add-playlist hover-white aspect-square hover:bg-spotify-black-100 outline-transparent hover:outline-spotify-black-100 active:bg-black active:outline-black rounded-[50%] outline-[5px] outline"
+        className="library__add-playlist"
       >
         <AiOutlinePlus size={"1.4rem"} />
       </button>
       <Popper open={openPopper} anchorEl={addBtn.current}>
-        <ContextMenu closePopper={setOpenPopper} />
+        <CreateContextMenu closePopper={setOpenPopper} />
       </Popper>
-    </>
+    </div>
   );
 };
 
-const ContextMenu = ({
+const CreateContextMenu = ({
   closePopper,
 }: {
   closePopper: Dispatch<SetStateAction<boolean>>;
@@ -46,20 +48,18 @@ const ContextMenu = ({
   };
 
   return (
-    <ul className="library__add-playlist-dialog-box bg-spotify-black-400 p-1 rounded-md absolute top-full w-fit">
-      <li>
-        <button
-          onClick={createPlayList}
-          className="text-white hover:bg-spotify-black-700 p-2 text-sm whitespace-nowrap rounded-md spaxe-x-4"
-        >
-          <span>
-
-          <SpMusicNoteWithAdd className="fill-white inline" size={18}/>
-          </span>
-          <span>Create New Playlist</span>
-        </button>
-      </li>
-    </ul>
+    <ContextMenu>
+      <ul className="library__add-playlist-dialog-box">
+        <ContextMenu.ContextMenuOption>
+          <button onClick={createPlayList}>
+            <span>
+              <SpMusicNoteWithAdd className="fill-white inline" size={18} />
+            </span>
+            <span>Create New Playlist</span>
+          </button>
+        </ContextMenu.ContextMenuOption>
+      </ul>
+    </ContextMenu>
   );
 };
 

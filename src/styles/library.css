@@ -7,17 +7,30 @@
     @apply flex;
   }
 
-  @container sidebar (min-width: 30rem) {
-    .Library__size-togglers button:last-child {
+  @container sidebar (min-width: 40rem) {
+    .library__layout-controllers {
+      display: grid !important;
+    }
+    .Library__size-controllers button:last-child {
       @apply block;
     }
-    .Library__size-togglers button:first-child {
+    .Library__size-controllers button:first-child {
       @apply hidden;
     }
 
     .Library__layout--grid {
-        @apply grid ;
-    
+      .library__main > main {
+        display: grid !important;
+        grid-template-columns:repeat(auto-fill, 8rem)   ;
+      }
+      .library__user-playlist-card {
+        @apply flex-col w-[8rem];
+
+        .user-playlist-cover {
+          @apply w-full;
+        }
+      }
+
       .library__layout-controllers :first-child {
         @apply hidden;
       }

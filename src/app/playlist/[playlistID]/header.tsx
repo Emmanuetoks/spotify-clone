@@ -1,14 +1,16 @@
 "use client";
 import { usePlayLists } from "@/context/playlist-context";
 import { useSearchParams } from "next/navigation";
-import React, { Suspense } from "react";
+import React, { MouseEventHandler, Suspense, useContext } from "react";
 import { PlayListContextType } from "../../../../types/playlist";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 
-const Header = ({openModal}:{openModal:() => void}) => {
+import { useEditModalState } from "@/context/editmodal";
+
+const Header = () => {
   const playListId = useSearchParams().get("id") as string;
   const[playLists] = usePlayLists() as PlayListContextType
-
+  const openModal = useEditModalState() as MouseEventHandler<HTMLHeadingElement>
   return (
     <Suspense>
       <header className="playlist__header pt-20 pb-3 px-7 w-full">

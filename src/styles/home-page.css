@@ -21,12 +21,14 @@
       }
     }
   }
-  @container music-section (max-width: 55rem) {
+  @container music-section (max-width: 54rem) {
     .home__card-container {
       grid-template-columns: repeat(4, minmax(5rem, 25rem));
 
       .spotify-song-card:nth-child(5),
-      .spotify-song-card:nth-child(6) {
+      .spotify-song-card:nth-child(6)
+
+ {
         display: none;
       }
     }

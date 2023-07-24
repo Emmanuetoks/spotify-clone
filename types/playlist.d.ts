@@ -10,7 +10,7 @@ export type PlayListAction = {
 }
 
 export type PlaylistCard = {
-  name:string;
+  name?:string;
   playlist_id:string ;
   description?:string;
 } //Playlist Type 

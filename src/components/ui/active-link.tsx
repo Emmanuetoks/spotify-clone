@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { BaseSyntheticEvent } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -8,14 +8,14 @@ type Props = {
   href: string;
 };
 const ActiveLink = ({ children, className, href }: Props) => {
-  const handleClick = function (this: Element) {
-    const navLinks = document.querySelectorAll("nav-link");
+  const handleClick = function (e: BaseSyntheticEvent) {    
+    const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((el) => el.classList.remove("active"));
 
-    this.classList.add("active");
+    e.currentTarget.classList.add("active");
   };
   return (
-    <Link onClick={handleClick} className={className} href={href} >
+    <Link onClick={handleClick} className={className} href={href}>
       {children}
     </Link>
   );

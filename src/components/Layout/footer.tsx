@@ -2,7 +2,7 @@ import React from "react";
 import Divider from "../ui/divider";
 const Footer = () => {
   return (
-    <footer className="px-7">
+    <footer className="pt-10 pb-7 px-7">
       <div className="flex flex-wrap w-full justify-between gap-5">
         <div className="footer__section flex-grow flex-shrink min-w-[15rem]">
           <h5 className="text-white font-medium text-md mb-1">Company</h5>

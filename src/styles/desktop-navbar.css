@@ -1,3 +1,13 @@
 @layer components {
-  
+  .active h5 {
+    color: white !important;
+    /* @apply text-white;  */
+  }
+  .active > .search> svg:nth-child(2) {
+    @apply block;
+  }
+  .active > .search > svg:nth-child(1) {
+    @apply hidden;
+  }
 }
+ 

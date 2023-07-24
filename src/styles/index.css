@@ -8,6 +8,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*::-webkit-scrollbar {
+  @apply bg-transparent;
+}
+
+
+*::-webkit-scrollbar-button {
+  @apply bg-spotify-black-100 hidden;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-spotify-black-100;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-transparent;
+
+}
 /* 
 To make an elemnt have a popup info, simply add a popup-into data attribute and add a popup-candidate className
  */

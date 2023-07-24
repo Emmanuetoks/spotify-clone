@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
+import { BiPlay } from "react-icons/bi";
 
 // images gotten from api call will be injected
 // Texts gotten from api call will be injected in
@@ -13,7 +14,7 @@ type Props = {
 const SongCard = ({imgSrc, ImgAlt}:Props) => {
   return (
     <>
-    <figure className="min-w-[5rem] max-w-[7rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group/sp-song-card">
+    <figure className="min-w-[5rem] max-w-[7rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group">
       <div className="relative card-cover w-full aspect-square bg-white">
         <Image src={imgSrc} fill={true} alt={ImgAlt}/>
       </div>
@@ -25,7 +26,8 @@ const SongCard = ({imgSrc, ImgAlt}:Props) => {
         </p>
       </figcaption>
 
-      <div className="spotify-song-card__play-button hidden bg-spotify-green-100 w-5 aspect-square rounded-full absolute top-[60%] right-0 transition place-center group/sp-song-card-hover:grid">
+      <div className="translate-y-3 spotify-song-card__play-button opacity-0 grid bg-spotify-green max-w-[3.5rem] aspect-square rounded-full absolute top-[50%] right-0 transition place-items-center group-hover:opacity-100 group-hover:-translate-y-3 pl-1">
+        <BiPlay size={'100%'} color="black"/>
       </div>
     </figure>
       {/* <Mobile /> */}

@@ -1,7 +1,7 @@
 "use client";
 import { usePlayLists } from "@/context/playlist-context";
 import { usePathname, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { MouseEventHandler, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { PlayListContextType } from "../../../../types/playlist";
 import { Modal, Paper } from "@mui/material";
