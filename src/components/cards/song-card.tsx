@@ -14,19 +14,19 @@ type Props = {
 const SongCard = ({imgSrc, ImgAlt}:Props) => {
   return (
     <>
-    <figure className="min-w-[5rem] max-w-[7rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group">
+    <figure className="min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group flex-grow flex-shrink">
       <div className="relative card-cover w-full aspect-square bg-white">
         <Image src={imgSrc} fill={true} alt={ImgAlt}/>
       </div>
 
       <figcaption className="card-details">
-        <h5 className="font-medium text-white text-normal">Peaceful Chicken</h5>
+        <h5 className="font-medium text-white text-normal">Anime Jamz</h5>
         <p className="text-[0.8rem] font-medium text-spotify-gray-200">
           Lorem ipsum dolor sit amet consectetur
         </p>
       </figcaption>
 
-      <div className="translate-y-3 spotify-song-card__play-button opacity-0 grid bg-spotify-green max-w-[3.5rem] aspect-square rounded-full absolute top-[50%] right-0 transition place-items-center group-hover:opacity-100 group-hover:-translate-y-3 pl-1">
+      <div className="translate-y-3 spotify-play-button opacity-0 grid bg-spotify-green max-w-[3rem] aspect-square rounded-full absolute top-[50%] right-4 transition place-items-center group-hover:opacity-100 group-hover:-translate-y-3 pl-1 hover:scale-105 hover:bg-green-400 active:bg-spotify-green">
         <BiPlay size={'100%'} color="black"/>
       </div>
     </figure>
@@ -34,21 +34,6 @@ const SongCard = ({imgSrc, ImgAlt}:Props) => {
     </>
   );
 };
-
-// const Mobile = () => {
-//   return (
-//     <figure className="block sm:hidden spotify-song-card min-w-[5rem] max-w-[7rem] aspect-[4/5] rounded-md space-y-3">
-//       <div className="card-cover w-full aspect-square bg-white"></div>
-
-//       <figcaption className="card-details">
-//         <h5 className="font-medium text-white text-[0.9rem]">Peaceful Chicken</h5>
-//         <p className="text-[0.7rem] font-medium text-spotify-gray-200">
-//           Lorem ipsum dolor sit amet consectetur
-//         </p>
-//       </figcaption>
-//     </figure>
-//   );
-// };
 export default SongCard;
 
 

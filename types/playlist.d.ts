@@ -1,10 +1,10 @@
 import { Dispatch } from "react";
 
-export type PlayListContextType = [PlayListsArray, Dispatch<PlayListAction>]
+export type PlayListContextType = [PlayListsArray, Dispatch<TReducerAction>]
 
 export type PlayListsArray = PlaylistCard[]  //Array of playlists state that will be provided to all
 
-export type PlayListAction = {
+type TReducerAction = {
   type:string;
   payload:PlaylistCard;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SpIcons } from '../../../types/SpIcons'
+import { SpIcons } from '../../../types/spIcons'
 
 const SpLibraryV2 = ({size=24, className}:SpIcons) => {
   const tailwindPossible = [className]

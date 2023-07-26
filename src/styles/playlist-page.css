@@ -1,6 +1,9 @@
 @layer components {
-.edit-modal #playlistName::before {
-  content: "Name";
+  .active-playlist {
+    @apply bg-[#232323];
+  }
+.edit-modal__form-field {
+  content: attr(name);
   display: block;
   position: absolute;
   top: 0%;
@@ -15,17 +18,17 @@
 
 @container playlist-page (max-width: 60rem) {
   .playlist-page header h1 {
-    @apply text-7xl
+    @apply text-5xl
   }
 }
 @container playlist-page (max-width: 50rem) {
   .playlist-page header h1 {
-    @apply text-6xl
+    @apply text-4xl
   }
 }
 @container playlist-page (max-width: 45rem) {
   .playlist-page header h1 {
-    @apply text-5xl pb-0;
+    @apply text-3xl pb-0;
   }
 }
 

@@ -2,6 +2,7 @@ import React from "react";
 import PlaylistMain from "./main";
 import CreatePlayListBtn from "./create-playlist";
 import Search from "./search-library";
+import LayoutControllers from "./library-layout";
 
 //This page will not be found when in desktop mode
 const Library = () => {
@@ -14,7 +15,13 @@ const Library = () => {
           <CreatePlayListBtn />
         </div>
       </header>
+
+      <div>
+      <div className="flex justify-between w-full">
+        <LayoutControllers/>
+      </div>
       <PlaylistMain />
+      </div>
     </div>
   );
 };

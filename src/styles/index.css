@@ -2,35 +2,16 @@
 @import "./library.css";
 @import "./home-page.css";
 @import "./footer.css";
-@import './playlist-page.css';
-@import './sidebar.css';
+@import "./playlist-page.css";
+@import "./sidebar.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-*::-webkit-scrollbar {
-  @apply bg-transparent;
-}
-
-
-*::-webkit-scrollbar-button {
-  @apply bg-spotify-black-100 hidden;
-}
-
-*::-webkit-scrollbar-thumb {
-  @apply bg-spotify-black-100;
-}
-
-*::-webkit-scrollbar-track {
-  @apply bg-transparent;
-
-}
-/* 
+@layer {
+  /* 
 To make an elemnt have a popup info, simply add a popup-into data attribute and add a popup-candidate className
  */
-
-@layer components {
   .popup-info-candidate {
     @apply relative;
   }
@@ -38,4 +19,17 @@ To make an elemnt have a popup info, simply add a popup-into data attribute and 
     content: attr(data-popup-info);
     @apply block absolute -translate-y-full top-0 px-2 py-1 bg-spotify-gray-100 rounded font-medium whitespace-nowrap;
   }
+
+  .grid {
+    display: grid;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
+  

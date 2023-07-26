@@ -1,31 +1,31 @@
 "use client";
 
-import React, { useEffect, useCallback,useRef } from "react";
+import React, { useEffect, useCallback,useRef, useReducer } from "react";
 
 import PlaylistCard from "./playlist-card";
 import { usePlayLists } from "@/context/playlist-context";
 import { PlayListContextType } from "../../../types/playlist";
 import Link from "next/link";
+import truncateString from "@/utils/truncateString";
+import { useLibraryContext } from "@/context/library-context";
 
 const PlaylistMain = () => {
-  // Bothe will update a userLib State which will render all the playlist cards
-  // When new playlist is created, a new Patch request is made to the server to pdate the user playlist
-  // There will be a local object which holds the state of the playlists in the browser.
-  // If user wants to check songs in his playlist,
-  // A new page will bre created where the user context is consumed and gets all the songs of the user and renders it in the new page.
-
-  // What will be created here will be a Reducer containing the playlists and a dispatch option to update it
-
+  // const [state, dispatch] = useReducer();
+  const [layout]= useLibraryContext()
+  // const reducer = () => {
+  // }
   const [playLists] = usePlayLists() as PlayListContextType;
-
+  
   return (
-    <div className="library__main">
-      <main className="flex flex-wrap gap-3 sm:block place-items-center overflow-y-auto">
+    <div className="h-[55vh] ">
+
+      
+      <main className={`Library__main ${layout} overflow-y-scroll max-h-full`}>
         {playLists.length === 0
           ? <div className="remove-on-collapse">No Playlist</div>
           : playLists.map((playList, index) => (
-            <Link key={playList.playlist_id} href={`/playlist/${playList.playlist_id}?id=${index}`}>
-              <PlaylistCard  name={playList.name} />
+            <Link key={playList.playlist_id} href={`/playlist/${playList.playlist_id}`}>
+              <PlaylistCard  name={truncateString(playList.name as string, layout==='gridLayout'? 15 : 20)} playlist_id={playList.playlist_id} />
             </Link>
             ))}
       </main>

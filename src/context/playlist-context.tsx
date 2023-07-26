@@ -1,7 +1,7 @@
 "use client";
-import React, { Dispatch, createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import {
-  PlayListAction,
+  TReducerAction,
   PlayListContextType,
   PlayListsArray,
 } from "../../types/playlist";
@@ -15,7 +15,7 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
   ]; //Place holder For user fetched
   const [playlists, dispatch] = useReducer(reducer, playListsInitialState);
 
-  function reducer(state: PlayListsArray, action: PlayListAction) {
+  function reducer(state: PlayListsArray, action: TReducerAction) {
     let stateUpdate = [...state];
     switch (action.type) {
       case "add":

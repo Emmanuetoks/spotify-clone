@@ -9,14 +9,17 @@ const Main = () => {
     <main className="playlist__main w-full flex-grow p-7">
       <div className="space-y-3">
         <PlayListOptions />
+
+        {/* This is the searchbar that the user can decidde to remove on his own 👇 */}
         <div className="pt-10 space-y-3">
           <Divider />
-          <h3 className="text-white font-bold text-xl">Let find something for your playlist</h3>
+          <h3 className="text-white font-bold text-xl">
+            Let find something for your playlist
+          </h3>
         </div>
 
-        <div className="playlist__songs flex justify-between bg-spotify-black-200">
-
-        </div>
+        {/* Playlist Songs */}
+        <div className="playlist__songs flex justify-between"></div>
       </div>
     </main>
   );

@@ -11,26 +11,6 @@ import LibrarySizeControllers from "./library-expand";
 const Header = () => {
   const libraryCollapseToggler = useRef<HTMLButtonElement | null>(null);
 
-  useEffect(() => {
-    const body = document.querySelector('body') as HTMLBodyElement
-    const desktopLibrary = document.getElementById(
-      "librarySection"
-    ) as HTMLDivElement;
-    // const libraryPageIndicator = document.getElementById('libraryCollapseToggler')
-
-    body?.addEventListener("click", (e: MouseEvent) => {
-      const target = e.target as Node;
-      const navLinks = document.querySelectorAll(".nav-link");
-      navLinks.forEach((el) => el.classList.remove("active"));
-  
-      if (desktopLibrary.contains(target)) {
-        libraryCollapseToggler.current?.classList.add("text-white");
-      } else {
-        libraryCollapseToggler.current?.classList.remove("text-white");
-      }
-    });
-  }, []);
-
   const toggleCollapse = () => {
     document
       .querySelector("aside.sidebar")
@@ -45,16 +25,16 @@ const Header = () => {
           id="libraryCollapseToggler"
           ref={libraryCollapseToggler}
           onClick={toggleCollapse}
-          className="Library__collapse-toggler flex gap-4 items-center hover-white cursor-pointer popup-info-candidate"
+          className="Library__collapse-toggler flex gap-4 items-center hover-white cursor-pointer popup-info-candidate group"
         >
-          <SpLibraryV1 className="fill-white" />
+          <SpLibraryV1 className="fill-spotify-gray-300 group-hover:fill-white" />
           <SpLibraryV2 className="fill-white hidden" />
-          <h5>Your Library</h5>
+          <h5 className={'group-hover:text-white'}>Your Library</h5>
         </button>
 
         <div className="remove-on-collapse flex gap-4 items-center">
-          <LayoutControllers />
           <AddPlayList />
+          <LayoutControllers />
           <LibrarySizeControllers />
         </div>
       </div>

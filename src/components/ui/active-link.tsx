@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { BaseSyntheticEvent } from "react";
 
 type Props = {
@@ -8,14 +9,9 @@ type Props = {
   href: string;
 };
 const ActiveLink = ({ children, className, href }: Props) => {
-  const handleClick = function (e: BaseSyntheticEvent) {    
-    const navLinks = document.querySelectorAll(".nav-link");
-    navLinks.forEach((el) => el.classList.remove("active"));
-
-    e.currentTarget.classList.add("active");
-  };
+  const currentPath = usePathname()
   return (
-    <Link onClick={handleClick} className={className} href={href}>
+    <Link className={`${className} ${href===currentPath && 'active-link'}`} href={href}>
       {children}
     </Link>
   );

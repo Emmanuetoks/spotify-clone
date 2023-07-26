@@ -1,4 +1,3 @@
-import { BiLibrary, BiSearch } from "react-icons/bi";
 import PlaylistMain from "./main";
 import Header from "./header";
 

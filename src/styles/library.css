@@ -3,9 +3,26 @@
     width: 150% !important;
   }
 
-  .Library__main--row-layout {
-    @apply flex;
+  .Library__main::-webkit-scrollbar {
+    @apply w-2 absolute;
+    scrollbar-gutter: auto;
   }
+
+  .Library__main::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .Library__main::-webkit-scrollbar-button {
+    @apply hidden;
+  }
+
+  .Library__main::-webkit-scrollbar-thumb {
+    @apply bg-spotify-black-100;
+  }
+
+  /* .Library__main--row-layout {
+    @apply flex;
+  } */
 
   @container sidebar (min-width: 40rem) {
     .library__layout-controllers {
@@ -18,24 +35,80 @@
       @apply hidden;
     }
 
-    .Library__layout--grid {
-      .library__main > main {
-        display: grid !important;
-        grid-template-columns:repeat(auto-fill, 8rem)   ;
-      }
+    /* Layout mode class applied on the main element in desktop librry */
+
+    .gridLayout {
+      display: grid !important;
+      /* @apply place-items-start; */
+      grid-template-columns: repeat(3, minmax(5rem, 1fr));
+      /* @apply grid; */
       .library__user-playlist-card {
-        @apply flex-col w-[8rem];
+        @apply flex-col w-full;
+
 
         .user-playlist-cover {
           @apply w-full;
         }
       }
+    }
 
-      .library__layout-controllers :first-child {
-        @apply hidden;
+    .listLayout {
+      @apply block;
+    }
+  }
+
+  @container sidebar (min-width: 30rem) {
+    .gridLayout {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(5rem, 1fr));
+      /* @apply grid; */
+      .library__user-playlist-card  {
+        .playlist__name {
+          @apply ;
+        }
+
+        .playlist__owner {
+          @apply ;
+        }
+
       }
-      .library__layout-controllers :last-child {
-        @apply block;
+    }
+  }
+  
+  @container sidebar (min-width: 40rem) {
+    .gridLayout {
+      display: grid !important;
+      grid-template-columns: repeat(5, minmax(5rem, 1fr));
+      /* @apply grid; */
+
+
+      .library__user-playlist-card  {
+        .playlist__name {
+          @apply ;
+        }
+
+        .playlist__owner {
+          @apply ;
+        }
+
+      }
+    }
+  }
+  @container sidebar (min-width: 50rem) {
+    .gridLayout {
+      display: grid !important;
+      grid-template-columns: repeat(6, minmax(5rem, 1fr));
+      /* @apply grid; */
+
+      .library__user-playlist-card  {
+        .playlist__name {
+          @apply ;
+        }
+
+        .playlist__owner {
+          @apply ;
+        }
+
       }
     }
   }

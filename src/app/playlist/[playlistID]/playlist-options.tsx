@@ -14,10 +14,10 @@ const PlayListOptions = () => {
     <>
       <button
         ref={playListOptionsBtn}
-        className="w-6 place-items-center hover:text-white aspect-square rounded-full hover:bg-spotify-black-100 active:bg-black outline-transparent outline-2 hover:outline-spotify-black-100 active:outline-black outline grid"
+        className="w-6 place-items-center aspect-square rounded-full"
         onClick={() => setOpenPopper((preVal) => !preVal)}
       >
-        <OptionsButton borderColor="bg-spotify-gray-200" />
+        <OptionsButton borderColor="border-spotify-gray-300 hover:border-white" />
       </button>
       <Popper
         open={openPopper}
