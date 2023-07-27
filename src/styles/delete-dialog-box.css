@@ -1,0 +1,22 @@
+@layer components {
+    .delete-dialog {
+        @apply p-5;
+    }
+    .delete-dialog {
+        .title {
+            @apply text-3xl font-medium;
+        }
+
+        .content {
+            @apply text-base font-light;
+        }
+
+        .cancel-btn {
+            @apply  px-3 py-2 text-black
+        }
+
+        .delete-btn {
+            @apply bg-spotify-green px-3 py-2 font-normal text-black;
+        }
+    }
+}

@@ -6,13 +6,13 @@ import dummyImage3 from '@/images/spotify--billie.jpg'
 import dummyImage4 from '@/images/spotify--gunna.jpg'
 import dummyImage5 from '@/images/spotify--rema.jpg'
 
-const MusicSection = () => {
+const MusicSection = ({sectionName, sectionLink}:{sectionName:string, sectionLink?:string}) => {
   return (
     <section className="home__music-section space-y-4 w-full">
       <div className="flex w-full justify-between items-center">
-    <h2 className="text-2xl font-semibold text-white">Focus</h2>
+    <h2 className="text-2xl font-semibold text-white hover:underline cursor-pointer">{sectionName}</h2>
 
-<Link href={'/song'} className="font-bold text-sm text-spotify-gray-200 hover:text-spotify-gray-100">
+<Link href={`/section${sectionLink}`} className="font-bold text-sm text-spotify-gray-200 hover:underline cursor-pointer">
   Show all
 </Link>
       </div>

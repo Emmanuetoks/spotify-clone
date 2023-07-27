@@ -4,10 +4,24 @@
 @import "./footer.css";
 @import "./playlist-page.css";
 @import "./sidebar.css";
+@import './states.css';
+@import './section-page.css';
+@import './delete-dialog-box.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: Spotify;
+  src: url('../assets/fonts/CircularSpotifyTxT-Book.ttf');
+}
+
+@layer base {
+  body {
+    font-family: Spotify
+  }
+}
 @layer {
   /* 
 To make an elemnt have a popup info, simply add a popup-into data attribute and add a popup-candidate className

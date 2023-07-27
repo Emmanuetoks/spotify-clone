@@ -7,7 +7,7 @@ import { Modal } from "@mui/material";
 import { AiOutlineClose } from "react-icons/ai";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 import { TPlaylistSearchParam } from "../../../../types/params";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 type UpdateInput = {
   playlist_id: string;
@@ -35,6 +35,7 @@ const EditModal = ({
     });
     closeModal();
   };
+
   return (
     <Suspense>
       <Modal open={openEditModal} onClose={closeModal}>
@@ -63,14 +64,14 @@ const EditModal = ({
               </div>
               <div className="playlist__edit-form flex flex-grow flex-col justify-between aspect-2/1 gap-5">
                 <div
-                  id="playlistName"
-                  className="w-full relative before:font-medium before:text-xs before:text-white edit-modal__form-field"
+                  data-to-form-name="Name"
+                  className={`w-full relative before:font-medium before:text-xs before:text-white edit-modal__form-field before:block`}
                 >
                   <input
                     // onClick={function(this:HTMLInputElement) {this.select()}}
-                    className="rounded py-2 bg-spotify-black-700 text-white font-medium text-sm focus:outline-spotify-gray-100 focus:outline focus:outline-2 p-2 w-full placeholder:text-spotify-gray-200 edit-modal__form-field"
+                    // onBlur={() => setNameInputIsFocused(false)}
+                    className="rounded py-2 bg-spotify-black-700 text-white font-medium text-sm focus:outline-spotify-gray-100 focus:outline focus:outline-2 p-2 w-full placeholder:text-spotify-gray-200"
                     type="text"
-                    
                     defaultValue={playListName}
                     {...register("name")}
                     placeholder={playListName}
@@ -78,19 +79,22 @@ const EditModal = ({
                 </div>
                 {/* This text area becomes an option in mobile */}
 
-                <div>
-                <textarea
-                  id=""
-                  
-                  className="w-full flex-grow rounded bg-spotify-black-700 text-white font-medium text-xs focus:outline-spotify-gray-100 focus:outline focus:outline-2 p-2 placeholder:text-spotify-gray-200 resize-none"
-                  placeholder="Add an optional description"
-                  {...register("description")}
+                <div
+                  data-to-form-name="Description"
+                  className={`edit-modal__form-field flex-grow before:block relative`}
+                >
+                  <textarea
+                  // onBlur={() => setDescriptionInputIsFocused(false)}
+                    id=""
+                    className="w-full rounded bg-spotify-black-700 text-white font-medium text-xs focus:outline-spotify-gray-100 focus:outline focus:outline-2 p-2 placeholder:text-spotify-gray-200 resize-none h-full"
+                    placeholder="Add an optional description"
+                    {...register("description")}
                   />
-                  </div>
+                </div>
               </div>
             </div>
             <div className="text-right">
-              <button className="text-black rounded-3xl py-3 font-medium text-base bg-white w-[6rem]">
+              <button className="text-black rounded-3xl py-3 font-medium text-base bg-white w-[6rem] hover:scale-[1.1]">
                 Save
               </button>
             </div>

@@ -5,10 +5,12 @@ import {
   PlayListContextType,
   PlayListsArray,
 } from "../../types/playlist";
+import { useRouter } from "next/navigation";
 
 const PlayListContext = createContext<PlayListContextType | null>(null);
 
 function PlayListContextProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter()
   // InitState will be gotten from user context that will be consumed in the future
   const playListsInitialState: PlayListsArray = [
     { name: "Default PlayList", playlist_id: "testplaylistidroboskeke" },
@@ -28,15 +30,12 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
             ? { ...el, ...action.payload }
             : el
         );
-        console.log(stateUpdate);
         break;
-
       case "delete":
         stateUpdate = stateUpdate.filter(
           (el) => el.playlist_id !== action.payload.playlist_id
         );
-
-        console.log(stateUpdate);
+        router.push('/')
 
         break;
       default:
@@ -54,6 +53,8 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
 export default PlayListContextProvider;
 
 export function usePlayLists() {
-  const context = useContext(PlayListContext);
+
+  const context = useContext(PlayListContext) as PlayListContextType
+
   return context;
 }

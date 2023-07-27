@@ -15,7 +15,7 @@ const PlaylistCard = ({ name, playlist_id }: Props) => {
         activePlaylistId.playlistID === playlist_id ? "active-playlist" : null
       }`}
     >
-      <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 user-playlist-cover rounded grid place-items-center outline outline-4 outline-[#101010]">
+      <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 user-playlist-cover rounded grid place-items-center shadow-[#101010] shadow-md">
         <SpMusicNote className="fill-spotify-gray-200" />
       </div>
 

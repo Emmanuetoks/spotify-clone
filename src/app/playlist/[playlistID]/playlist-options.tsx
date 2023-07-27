@@ -23,7 +23,7 @@ const PlayListOptions = () => {
         open={openPopper}
         anchorEl={playListOptionsBtn.current}
         disablePortal={true}
-        placement="top-start"
+        placement="bottom-start"
       >
         <OptionsContextMenu />
       </Popper>

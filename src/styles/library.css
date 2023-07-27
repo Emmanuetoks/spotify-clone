@@ -5,7 +5,6 @@
 
   .Library__main::-webkit-scrollbar {
     @apply w-2 absolute;
-    scrollbar-gutter: auto;
   }
 
   .Library__main::-webkit-scrollbar-track {
@@ -64,11 +63,11 @@
       /* @apply grid; */
       .library__user-playlist-card  {
         .playlist__name {
-          @apply ;
+          @apply text-base;
         }
 
         .playlist__owner {
-          @apply ;
+          @apply text-base;
         }
 
       }
@@ -84,11 +83,11 @@
 
       .library__user-playlist-card  {
         .playlist__name {
-          @apply ;
+          @apply text-base;
         }
 
         .playlist__owner {
-          @apply ;
+          @apply text-base;
         }
 
       }
@@ -102,14 +101,20 @@
 
       .library__user-playlist-card  {
         .playlist__name {
-          @apply ;
+          @apply text-base;
         }
 
         .playlist__owner {
-          @apply ;
+          @apply text-base;
         }
 
       }
     }
   }
 }
+
+
+/* 
+
+
+ */

@@ -17,10 +17,10 @@ const PlaylistMain = () => {
   const [playLists] = usePlayLists() as PlayListContextType;
   
   return (
-    <div className="h-[55vh] ">
+    <div className="h-[55vh]">
 
       
-      <main className={`Library__main ${layout} overflow-y-scroll max-h-full`}>
+      <main className={`Library__main ${layout} max-h-full overflow-y-auto`}>
         {playLists.length === 0
           ? <div className="remove-on-collapse">No Playlist</div>
           : playLists.map((playList, index) => (

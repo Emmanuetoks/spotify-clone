@@ -1,43 +1,65 @@
-import { usePlayLists } from '@/context/playlist-context'
-import React, { Dispatch, MouseEventHandler, useState } from 'react'
-import { BsLayoutTextSidebar } from 'react-icons/bs'
-import { PlayListAction, PlayListContextType } from '../../../../types/playlist'
-import { Button, Dialog, DialogActions, DialogContent } from '@mui/material'
-import { useParams, useSearchParams } from 'next/navigation'
+import { usePlayLists } from "@/context/playlist-context";
+import React, { Dispatch, MouseEventHandler, useState } from "react";
+import {
+  TReducerAction,
+  PlayListContextType,
+} from "../../../../types/playlist";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import {  useParams, usePathname, useRouter } from "next/navigation";
+import { TPlaylistSearchParam } from "../../../../types/params";
 const DeletePlayList = () => {
-    const id = useSearchParams().get('is') as string
-    const [playlists ,setPlayLists] = usePlayLists() as PlayListContextType
-    const [openDialog, setOpenDialog] = useState<boolean>(false)
+  const activePlayList= useParams() as TPlaylistSearchParam
 
-    const deletePlayList:MouseEventHandler<HTMLButtonElement> = (e) => {
-        const deleteAction:PlayListAction = {type:'delete', payload:{playlist_id:playlists[Number(id)].playlist_id}}     
-        
-        setPlayLists(deleteAction)
-        setOpenDialog(false)
-    }
+  const [playlists, setPlayLists] = usePlayLists() 
+  const playListName = playlists.find(el => el.playlist_id === activePlayList.playlistID)?.name 
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const router = useRouter()
+  const deletePlayList: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const deleteAction: TReducerAction = {
+      type: "delete",
+      payload: { playlist_id: activePlayList.playlistID as string},
+    };
+
+    setPlayLists(deleteAction);
+    setOpenDialog(false);
+
+  };
   return (
     <>
-    <button onClick={() => setOpenDialog(true)}>
+      <button onClick={() => setOpenDialog(true)}>
         <span>Delete Playlist</span>
-    </button>
+      </button>
 
-    <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-        <DialogContent>
-            <p>Are you sure you want to delete</p>
+      <Dialog
+      sx={{'padding':'4rem'}}
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+        className="delete-dialog"
+        
+      >
+        <DialogTitle className="title">
+          Delete from Library?
+        </DialogTitle>
+        <DialogContent className="content">
+          <p>Are you sure you want to delete <span className="font-bold text-black">{playListName}</span> from <span className="font-bold text-black">Your Library</span></p>
         </DialogContent>
 
-        <DialogActions>
-          <Button onClick={deletePlayList}>
-              Yes
-          </Button>
+         <DialogActions className="mt-3">
+          <Button onClick={() => setOpenDialog(false)} className="cancel-btn">Cancel</Button>
 
-          <Button onClick={() => setOpenDialog(false)} >
-            No
+          <Button onClick={deletePlayList} className="delete-btn">
+            Delete
           </Button>
         </DialogActions>
-    </Dialog>
+      </Dialog>
     </>
-  )
-}
+  );
+};
 
-export default DeletePlayList
+export default DeletePlayList;

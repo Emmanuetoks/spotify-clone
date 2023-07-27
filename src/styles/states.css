@@ -1,0 +1,5 @@
+@layer components {
+  .active-playlist {
+    @apply bg-[#232323];
+  }
+}

@@ -1,0 +1,36 @@
+@layer components {
+  .Section-page {
+    container-type: inline-size;
+    container-name: section-page;
+  }
+
+  .Section-page__contents {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(5rem, 25rem));
+    grid-template-rows: repeat(1, auto);
+    overflow-y: hidden;
+    gap: 1rem;
+  }
+
+  @container section-page (max-width: 65rem) {
+    .Section-page__contents {
+      grid-template-columns: repeat(5, minmax(5rem, 25rem));
+    }
+  }
+  @container section-page (max-width: 54rem) {
+    .Section-page__contents {
+      grid-template-columns: repeat(4, minmax(5rem, 25rem));
+    }
+  }
+  @container section-page (max-width: 45rem) {
+    .Section-page__contents {
+      grid-template-columns: repeat(3, minmax(5rem, 20rem));
+    }
+  }
+  @container section-page (max-width: 35rem) {
+    .Section-page__contents {
+      grid-template-columns: repeat(2, minmax(5rem, 15rem));
+      gap: 1rem;
+    }
+  }
+}

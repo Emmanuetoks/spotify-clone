@@ -21,7 +21,7 @@ const AddPlayList = ({ openFunction }: { openFunction?: any }) => {
       >
         <AiOutlinePlus size={"1.4rem"} />
       </button>
-      <Popper open={openPopper} anchorEl={addBtn.current}>
+      <Popper open={openPopper} anchorEl={addBtn.current} placement="bottom">
         <CreateContextMenu closePopper={setOpenPopper} />
       </Popper>
     </div>
@@ -51,7 +51,7 @@ const CreateContextMenu = ({
     <ContextMenu>
       <ul className="library__add-playlist-dialog-box">
         <ContextMenu.ContextMenuOption>
-          <button onClick={createPlayList}>
+          <button onClick={createPlayList} className="flex items-center gap-2">
             <span>
               <SpMusicNoteWithAdd className="fill-white inline" size={18} />
             </span>

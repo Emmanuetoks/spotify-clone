@@ -6,11 +6,11 @@
       color: white !important;
     }
 
-    svg:nth-child(2) {
+    svg.active {
       @apply block;
     }
 
-    svg:nth-child(1) {
+    svg.normal {
       @apply hidden;
     }
   }
