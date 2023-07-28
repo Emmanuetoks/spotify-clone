@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="pt-10 pb-7 px-7">
       <div className="flex flex-wrap w-full justify-between gap-5">
         <div className="footer__section flex-grow flex-shrink min-w-[15rem]">
-          <h5 className="text-white font-medium text-md mb-1">Company</h5>
+          <h5 className="text-white font-bold text-md mb-1">Company</h5>
           <div className="footer__main-links text-spotify-gray-100 font-medium">
             <ul>
               <li>
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__section min-w-[15rem] flex-grow flex-shrink">
-          <h5 className="text-white font-medium text-md mb-1">Communities</h5>
+          <h5 className="text-white font-bold text-md mb-1">Communities</h5>
           <div className="footer__main-links text-spotify-gray-100 font-medium">
             <ul>
               <li>
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__section flex-grow flex-shrink min-w-[15rem]">
-          <h5 className="text-white font-medium text-md mb-1">Useful links</h5>
+          <h5 className="text-white font-bold text-md mb-1">Useful links</h5>
           <div className="footer__main-links text-spotify-gray-100 font-medium">
             <ul>
               <li>

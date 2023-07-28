@@ -1,18 +1,22 @@
-import SplitPane from "react-split-pane";
+// import SplitPane from "react-split-pane";
 
 import PlayListContextProvider from "@/context/playlist-context";
 import { LibraryContextProvider } from "@/context/library-context";
+import WebPlayer from "../web-player";
 type Props = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="flex w-full bg-black sm:p-2 gap-2 absolute inset-0 overflow-x-hidden">
-      <PlayListContextProvider>
-        <LibraryContextProvider>{children}</LibraryContextProvider>
-      </PlayListContextProvider>
-    </div>
+    <PlayListContextProvider>
+      <div className="absolute inset-0 bg-black">
+        <div className="flex w-full max-h-full sm:p-2 gap-2 overflow-x-hidden">
+          <LibraryContextProvider>{children}</LibraryContextProvider>
+        </div>
+      </div>
+      <WebPlayer />
+    </PlayListContextProvider>
   );
 };
 

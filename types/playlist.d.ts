@@ -13,4 +13,8 @@ export type PlaylistCard = {
   name?:string;
   playlist_id:string ;
   description?:string;
+  likes?:string;
+  duration?:string;
+  tracks?:string;
+  owner?:string;
 } //Playlist Type 

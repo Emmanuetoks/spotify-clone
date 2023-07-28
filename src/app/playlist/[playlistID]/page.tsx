@@ -14,7 +14,7 @@ const Playlist = () => {
   return (
     <div
       id="PlayListPage"
-      className="playlist-page bg-gradient-to-b from-spotify-gray-300 from-10% via-spotify-black-900 via-40% to-spotify-black-200 to-80% min-h-[100vh] flex flex-col w-full"
+      className="playlist-page bg-gradient-to-b from-spotify-gray-300 from-10% via-spotify-black-900 via-40% to-spotify-black-200 to-80% min-h-full flex flex-col w-full"
     >
       <EditModalProvider value={openModal}>
         <Header />

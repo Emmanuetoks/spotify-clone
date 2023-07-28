@@ -13,7 +13,7 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   // InitState will be gotten from user context that will be consumed in the future
   const playListsInitialState: PlayListsArray = [
-    { name: "Default PlayList", playlist_id: "testplaylistidroboskeke" },
+    { name: "Default PlayList", playlist_id: "testplaylistidroboskeke", description:'Test Playlist', owner:'Emmanuel Toks', likes:'2', tracks:'5', duration:'5hr 3min' },
   ]; //Place holder For user fetched
   const [playlists, dispatch] = useReducer(reducer, playListsInitialState);
 

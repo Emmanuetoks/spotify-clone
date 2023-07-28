@@ -29,7 +29,7 @@ const Header = () => {
         >
           <SpLibraryV1 className="fill-spotify-gray-200 group-hover:fill-white" />
           <SpLibraryV2 className="fill-spotify-gray-200 hover:fill-white hidden" />
-          <h5 className={'group-hover:text-white'}>Your Library</h5>
+          <h5 className={'group-hover:text-white font-medium'}>Your Library</h5>
         </button>
 
         <div className="remove-on-collapse flex gap-4 items-center">

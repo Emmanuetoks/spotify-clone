@@ -8,7 +8,7 @@ type Props = {
 };
 const Main = ({ children }: Props) => {
   return (
-    <div className="layout__main pb-[6rem] footer__main-links bg-spotify-black-200 flex-grow rounded-md sm:w-[58.87rem] sm:min-w-[30%] overflow-y-auto">
+    <div className="layout__main pb-[6rem] footer__main-links bg-spotify-black-200 flex-grow rounded-md sm:w-[58.87rem] sm:min-w-[30%] overflow-y-auto max-h-full">
       {/* <DesktopNavigator/> */}
       <main className="relative">
         {children}
