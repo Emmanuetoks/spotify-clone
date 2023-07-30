@@ -8,6 +8,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 import { TPlaylistSearchParam } from "../../../../types/params";
 import { Suspense, useState } from "react";
+import SpCloseBtn from "@/components/icons/SpCloseBtn";
 
 type UpdateInput = {
   playlist_id: string;
@@ -47,7 +48,7 @@ const EditModal = ({
               onClick={closeModal}
               className="hover:text-white rounded-full p-2 active:bg-spotify-gray-100 text-spotify-gray-200"
             >
-              <AiOutlineClose size={"1.2rem"} />
+              <SpCloseBtn size={16} />
             </button>
             {/* There will be a save button here that will be invisibke on desktop */}
           </div>

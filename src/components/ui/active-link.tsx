@@ -1,17 +1,18 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { BaseSyntheticEvent } from "react";
+import React, { BaseSyntheticEvent, MouseEventHandler } from "react";
 
 type Props = {
   children: React.ReactNode;
   className: string;
   href: string;
+  onClick?:MouseEventHandler;
 };
-const ActiveLink = ({ children, className, href }: Props) => {
+const ActiveLink = ({ children, className, href, onClick }: Props) => {
   const currentPath = usePathname()
   return (
-    <Link className={`${className} ${href===currentPath && 'active-link'}`} href={href}>
+    <Link onClick={onClick} className={`${className} ${href===currentPath && 'active-link'}`} href={href}>
       {children}
     </Link>
   );

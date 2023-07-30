@@ -6,6 +6,7 @@ import { Popper } from "@mui/material";
 import EditPlayList from "./edit-playlist";
 import DeletePlayList from "./delete-playlist";
 import ContextMenu from "@/components/ui/context-menu";
+import SpOptions from "@/components/icons/SpOptions";
 
 const PlayListOptions = () => {
   const playListOptionsBtn = useRef<HTMLButtonElement | null>(null);
@@ -14,10 +15,11 @@ const PlayListOptions = () => {
     <>
       <button
         ref={playListOptionsBtn}
-        className="w-6 place-items-center aspect-square rounded-full"
+        className="w-6 place-items-center aspect-square rounded-full fill-spotify-gray-700 hover:fill-white"
         onClick={() => setOpenPopper((preVal) => !preVal)}
       >
-        <OptionsButton borderColor="border-spotify-gray-300 hover:border-white" />
+        <SpOptions size={32}  />
+        
       </button>
       <Popper
         open={openPopper}

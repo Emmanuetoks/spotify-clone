@@ -10,12 +10,12 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <PlayListContextProvider>
-      <div className="absolute inset-0 bg-black">
-        <div className="flex w-full max-h-full sm:p-2 gap-2 overflow-x-hidden">
+      <div className="flex flex-col absolute inset-0 bg-black">
+        <div className="flex-grow flex w-full h-[90%] sm:p-2 gap-2 overflow-x-hidden">
           <LibraryContextProvider>{children}</LibraryContextProvider>
         </div>
-      </div>
       <WebPlayer />
+      </div>
     </PlayListContextProvider>
   );
 };

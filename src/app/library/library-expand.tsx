@@ -1,5 +1,7 @@
 import { MouseEventHandler } from "react";
+import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineRight } from "react-icons/ai";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import {HiOutlineArrowRight, HiOutlineArrowLeft} from 'react-icons/hi'
 
 const LibrarySizeControllers = () => {
     const toggleLibraryExpand: MouseEventHandler = function (
@@ -27,7 +29,7 @@ const LibrarySizeControllers = () => {
         className="Library__expand-btn"
       >
         {/* {"->"} */}
-        <BsArrowRight size={'1rem'}/>
+        <HiOutlineArrowRight size={'1rem'}/>
       </button>
       <button
         data-library-expand="false"
@@ -35,7 +37,7 @@ const LibrarySizeControllers = () => {
         className="Library__collapse-btn hidden"
       >
         {/* {"<-"} */}
-        <BsArrowLeft size={'1rem'}/>
+        <HiOutlineArrowLeft size={'1rem'}/>
       </button>
     </div>
     )

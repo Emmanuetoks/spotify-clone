@@ -17,6 +17,7 @@
   src: url('../assets/fonts/CircularSpotifyTxT-Book.ttf');
 }
 
+
 @layer base {
   body {
     font-family: Spotify

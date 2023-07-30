@@ -27,9 +27,9 @@ const Header = () => {
           onClick={toggleCollapse}
           className="Library__collapse-toggler flex gap-4 items-center hover-white cursor-pointer group"
         >
-          <SpLibraryV1 className="fill-spotify-gray-200 group-hover:fill-white" />
-          <SpLibraryV2 className="fill-spotify-gray-200 hover:fill-white hidden" />
-          <h5 className={'group-hover:text-white font-medium'}>Your Library</h5>
+          <SpLibraryV1 className="fill-spotify-gray-800 group-hover:fill-white" />
+          <SpLibraryV2 className="fill-spotify-gray-800 hover:fill-white hidden" />
+          <h5 className={'text-spotify-gray-800 group-hover:text-white font-medium'}>Your Library</h5>
         </button>
 
         <div className="remove-on-collapse flex gap-4 items-center">
