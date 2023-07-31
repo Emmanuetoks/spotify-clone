@@ -38,17 +38,7 @@
 
     .gridLayout {
       display: grid !important;
-      /* @apply place-items-start; */
       grid-template-columns: repeat(3, minmax(5rem, 1fr));
-      /* @apply grid; */
-      .library__user-playlist-card {
-        @apply flex-col w-full;
-
-
-        .user-playlist-cover {
-          @apply w-full;
-        }
-      }
     }
 
     .listLayout {
@@ -61,58 +51,17 @@
       display: grid !important;
       grid-template-columns: repeat(4, minmax(5rem, 1fr));
       /* @apply grid; */
-      .library__user-playlist-card  {
-        .playlist__name {
-          @apply text-base;
-        }
-
-        .playlist__owner {
-          @apply text-base;
-        }
-
-      }
     }
   }
-  
+
   @container sidebar (min-width: 40rem) {
     .gridLayout {
       display: grid !important;
       grid-template-columns: repeat(5, minmax(5rem, 1fr));
       /* @apply grid; */
-
-
-      .library__user-playlist-card  {
-        .playlist__name {
-          @apply text-base;
-        }
-
-        .playlist__owner {
-          @apply text-base;
-        }
-
-      }
-    }
-  }
-  @container sidebar (min-width: 50rem) {
-    .gridLayout {
-      display: grid !important;
-      grid-template-columns: repeat(6, minmax(5rem, 1fr));
-      /* @apply grid; */
-
-      .library__user-playlist-card  {
-        .playlist__name {
-          @apply text-base;
-        }
-
-        .playlist__owner {
-          @apply text-base;
-        }
-
-      }
     }
   }
 }
-
 
 /* 
 

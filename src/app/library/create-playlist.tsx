@@ -1,11 +1,9 @@
 "use client";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { PlayListContextType } from "../../../types/playlist";
 import { usePlayLists } from "@/context/playlist-context";
 import { nanoid } from "nanoid";
 import { Popper } from "@mui/material";
-import SpMusicNote from "@/components/icons/SpMusicNote";
 import SpMusicNoteWithAdd from "@/components/icons/SpMusicNoteWithAdd";
 import ContextMenu from "@/components/ui/context-menu";
 
@@ -33,15 +31,16 @@ const CreateContextMenu = ({
 }: {
   closePopper: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [playLists, dispatchPlayList] = usePlayLists() as PlayListContextType;
+  const [playLists, setPlayLists] = usePlayLists().libraryPlaylists;
   const createPlayList = () => {
     // After adding new object, make API call to server to update user playlist
     const newPlayListName = playLists ? playLists.length + 1 : 1;
-    dispatchPlayList({
+    setPlayLists({
       type: "add",
       payload: {
         name: `My Playlist #${newPlayListName}`,
         playlist_id: nanoid(),
+        owner:'Emmanuel Toks'
       },
     });
     closePopper(false);

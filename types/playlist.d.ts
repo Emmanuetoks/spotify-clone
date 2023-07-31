@@ -1,20 +1,34 @@
-import { Dispatch } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export type PlayListContextType = [PlayListsArray, Dispatch<TReducerAction>]
+export type PlayListContextType = 
+  {
+    libraryPlaylists: [
+      TPlayList[],
+      Dispatch<TReducerAction>
+    ];
 
-export type PlayListsArray = PlaylistCard[]  //Array of playlists state that will be provided to all
+    playlistInView:[TPlayList | null, Dispatch<SetStateAction<TPlayList | null>>]
+  }
+;
+
+export type PlayListsArray = TPlayList[]; //Array of playlists state that will be provided to all
+
+export type PlayListInView = TPlayList;
 
 type TReducerAction = {
-  type:string;
-  payload:PlaylistCard;
-}
+  type: string;
+  payload: TPlayList;
+};
 
-export type PlaylistCard = {
-  name?:string;
-  playlist_id:string ;
-  description?:string;
-  likes?:string;
-  duration?:string;
-  tracks?:string;
-  owner?:string;
-} //Playlist Type 
+type FetchedPlaylist = TPlayList | null;
+
+export type TPlayList = {
+  name?: string;
+  playlist_id: string;
+  description?: string;
+  likes?: string;
+  duration?: string;
+  tracks?: string;
+  owner: string;
+  type:string;
+}; //Playlist Type

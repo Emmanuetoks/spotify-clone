@@ -1,22 +1,21 @@
 "use client";
 import { usePlayLists } from "@/context/playlist-context";
-import { useParams } from "next/navigation";
 import React, { MouseEventHandler, Suspense } from "react";
-import { PlayListContextType } from "../../../../types/playlist";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 import { useEditModalState } from "@/context/editmodal";
-import { TPlaylistSearchParam } from "../../../../types/params";
 import truncateString from "@/utils/truncateString";
+import { useAuth } from "@/context/auth-context";
+import { useParams } from "next/navigation";
+import { TPlaylistSearchParam } from "../../../types/params";
 
 const Header = () => {
-  const activePlayList: TPlaylistSearchParam = useParams();
-  const [playLists] = usePlayLists() as PlayListContextType;
-  const openModal =
+  const par:TPlaylistSearchParam = useParams();
+    const openModal =
     useEditModalState() as MouseEventHandler<HTMLHeadingElement>;
-  const playList = playLists.find(
-    (el) => el.playlist_id === activePlayList.playlistID
-  );
 
+  const userName = useAuth().user.name;
+  const [libraryPlayLists] = usePlayLists().libraryPlaylists
+  const playlistInView = libraryPlayLists.find(el => el.playlist_id === par.playlistID);
   return (
     <Suspense>
       <header className="playlist__header pt-20 pb-3 px-7 w-full">
@@ -27,30 +26,42 @@ const Header = () => {
 
           <div className="user__playlist-details text-white w-full">
             <p className="hidden sm:block text-sm font-semibold">Playlist</p>
-            <h1
-              onClick={openModal}
-              className="text-normal sm:text-8xl py-3 font-black cursor-pointer"
-            >
-              {truncateString(playList?.name as string, 17)}
-            </h1>
+            {userName === playlistInView?.owner ? (
+              <h1
+                onClick={openModal}
+                className="text-normal sm:text-8xl py-3 font-black cursor-pointer"
+              >
+                {truncateString(playlistInView?.name as string, 17)}
+              </h1>
+            ) : (
+              <h1 className="text-normal sm:text-8xl py-3 font-black cursor-pointer">
+                {truncateString(playlistInView?.name as string, 17)}
+              </h1>
+            )}
+
             <div className="space-y-2">
               <p className="playlist-description text-sm text-spotify-gray-200">
-                {playList?.description || ""}
+                {playlistInView?.description || ""}
               </p>
               <p className="text-sm font-medium other-details">
                 <span className="owner font-bold tracking-wider">
-                  {playList?.owner === "spotify" ? (
+                  {playlistInView?.owner === "spotify" ? (
                     <span>Icon Spotify</span>
                   ) : (
-                    playList?.owner
+                    playlistInView?.owner
                   )}
                 </span>
-                {playList?.likes ? <> • {playList.likes} likes</> : ""}
-                {playList?.tracks ? (
+                {playlistInView?.likes ? (
+                  <> • {playlistInView.likes} likes</>
+                ) : (
+                  ""
+                )}
+                {playlistInView?.tracks ? (
                   <>
-                      {' '}• {playList.tracks} songs,{" "}
+                    {" "}
+                    • {playlistInView.tracks} songs,{" "}
                     <span className="text-spotify-gray-100">
-                      about {playList.duration || ""}
+                      about {playlistInView.duration || ""}
                     </span>
                   </>
                 ) : (
@@ -64,5 +75,4 @@ const Header = () => {
     </Suspense>
   );
 };
-
 export default Header;

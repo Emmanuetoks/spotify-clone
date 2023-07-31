@@ -2,13 +2,14 @@
 import { usePlayLists } from "@/context/playlist-context";
 import { useParams } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { PlayListContextType } from "../../../../types/playlist";
+import { PlayListContextType } from "../../../types/playlist";
 import { Modal } from "@mui/material";
 import { AiOutlineClose } from "react-icons/ai";
 import SpMusicNote from "@/components/icons/SpMusicNote";
-import { TPlaylistSearchParam } from "../../../../types/params";
+
 import { Suspense, useState } from "react";
 import SpCloseBtn from "@/components/icons/SpCloseBtn";
+import { TPlaylistSearchParam } from "../../../types/params";
 
 type UpdateInput = {
   playlist_id: string;
@@ -23,7 +24,7 @@ const EditModal = ({
   closeModal: () => void;
 }) => {
   const activePlayList: TPlaylistSearchParam = useParams();
-  const [playlists, setPlayLists] = usePlayLists() as PlayListContextType;
+  const [playlists, setPlayLists] = usePlayLists().libraryPlaylists;
   const { register, handleSubmit } = useForm<UpdateInput>();
   const playListName = playlists.find(
     (el) => el.playlist_id === activePlayList.playlistID

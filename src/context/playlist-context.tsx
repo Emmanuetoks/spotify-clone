@@ -1,9 +1,10 @@
 "use client";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import {
   TReducerAction,
   PlayListContextType,
   PlayListsArray,
+  TPlayList,
 } from "../../types/playlist";
 import { useRouter } from "next/navigation";
 
@@ -15,8 +16,10 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
   const playListsInitialState: PlayListsArray = [
     { name: "Default PlayList", playlist_id: "testplaylistidroboskeke", description:'Test Playlist', owner:'Emmanuel Toks', likes:'2', tracks:'5', duration:'5hr 3min' },
   ]; //Place holder For user fetched
-  const [playlists, dispatch] = useReducer(reducer, playListsInitialState);
 
+  
+  const [playlists, dispatch] = useReducer(reducer, playListsInitialState);
+  const [fetchedPlaylist, setFetchedPlaylist] = useState<null | TPlayList >(null)
   function reducer(state: PlayListsArray, action: TReducerAction) {
     let stateUpdate = [...state];
     switch (action.type) {
@@ -44,7 +47,7 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
     return stateUpdate;
   }
   return (
-    <PlayListContext.Provider value={[playlists, dispatch]}>
+    <PlayListContext.Provider value={{libraryPlaylists:[playlists, dispatch], playlistInView:[fetchedPlaylist, setFetchedPlaylist]}}>
       {children}
     </PlayListContext.Provider>
   );

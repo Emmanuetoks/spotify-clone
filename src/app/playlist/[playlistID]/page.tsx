@@ -1,14 +1,38 @@
 "use client";
 
-import React, { MouseEventHandler, useContext, useState } from "react";
-import Header from "./header";
-import Main from "./main";
-import { GetServerSideProps} from "next";
-import EditModal from "./edit-details-modal";
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import Header from "../header";
+import Main from "../main";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import EditModal from "../edit-details-modal";
 import { EditModalProvider } from "@/context/editmodal";
+import { usePlayLists } from "@/context/playlist-context";
+import { TPlaylistSearchParam } from "../../../../types/params";
+import { useParams } from "next/navigation";
+import { TPlayList } from "../../../../types/playlist";
 
 const Playlist = () => {
+  const { playlistInView, libraryPlaylists } = usePlayLists();
+  const [playlist, setPlayListInView] = playlistInView;
+  const Param: TPlaylistSearchParam = useParams();
+  useEffect(() => {
+    const [userLibraryPlayLists] = libraryPlaylists;
+    setPlayListInView(
+      userLibraryPlayLists.find(
+        (el) => el.playlist_id === Param.playlistID
+      ) as TPlayList
+    );
+  }, [playlist, libraryPlaylists, Param.playlistID, setPlayListInView]);
+  
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
+  //For now i will be using library playlist
+  //But ideally the currentplayist should be fetched
+
   const closeModal: () => void = () => setOpenEditModal(false);
   const openModal: MouseEventHandler = () => setOpenEditModal(true);
   return (
@@ -26,12 +50,15 @@ const Playlist = () => {
   );
 };
 
-const getServerSideProps: GetServerSideProps = async (context) => {
+const getServerSideProps:GetServerSideProps = async (context:GetServerSidePropsContext) => {
+  const response = await fetch(`localhost:3000/api/v1/${context.params?.playlistID}`)
+  const data = await response.json()
+
   return {
     props: {
-      name: "ahmed",
-    },
-  };
-};
-// const getStatic
+      data
+    }
+  }
+}
 export default Playlist;
+ 

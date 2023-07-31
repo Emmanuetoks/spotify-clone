@@ -1,7 +1,6 @@
 "use client";
-import React, { MouseEventHandler, useContext, useState } from "react";
 import { useEditModalState } from "@/context/editmodal";
-import ContextMenu from "@/components/ui/context-menu";
+
 
 const EditPlayList = () => {
   const openModal = useEditModalState() as () => void;

@@ -2,7 +2,11 @@ import React from 'react'
 
 const OtherControls = () => {
   return (
-    <div>OtherControls</div>
+    <div className='w-[20rem]'>
+      <div className=''>
+
+      </div>
+    </div>
   )
 }
 

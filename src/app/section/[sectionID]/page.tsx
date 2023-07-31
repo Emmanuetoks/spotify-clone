@@ -7,7 +7,7 @@ import { TSectionIdParam } from "../../../../types/params";
 const Section = () => {
   const sectionId:TSectionIdParam = useParams()
 
-  
+  // fetch  All data for the section and render the cards
   return (
     <div className="Section-page h-full px-7 py-5">
       <h2 className="text-2xl font-semibold text-white">{}</h2>

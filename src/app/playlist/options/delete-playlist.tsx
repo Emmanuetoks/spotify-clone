@@ -16,7 +16,7 @@ import { TPlaylistSearchParam } from "../../../../types/params";
 const DeletePlayList = () => {
   const activePlayList= useParams() as TPlaylistSearchParam
 
-  const [playlists, setPlayLists] = usePlayLists() 
+  const [playlists, setPlayLists] = usePlayLists().libraryPlaylists 
   const playListName = playlists.find(el => el.playlist_id === activePlayList.playlistID)?.name 
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const router = useRouter()
