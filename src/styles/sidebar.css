@@ -34,6 +34,14 @@
       padding-inline: 0.5rem !important;
       /* @apply px-[0.5rem]; */
     }
+
+    .list-layout-pcover {
+      width: 100% !important;
+    }
+
+    .overlay-comp {
+      height: 55vh !important;
+    }
   }
 
   @container sidebar (min-width: 30rem) {

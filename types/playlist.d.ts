@@ -24,11 +24,12 @@ type FetchedPlaylist = TPlayList | null;
 
 export type TPlayList = {
   name?: string;
-  playlist_id: string;
+  id: string;
   description?: string;
   likes?: string;
   duration?: string;
   tracks?: string;
   owner: string;
   type:string;
+images?:{url:string, height:number|null,  width:number|null }[ ]
 }; //Playlist Type

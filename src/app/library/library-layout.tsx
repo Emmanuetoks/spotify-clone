@@ -13,14 +13,14 @@ const LayoutControllers = () => {
         onClick={() => setLibraryLayout('gridLayout')}
         className={`${libraryLayout === "gridLayout" ? "hidden" : "block"}`}
       >
-        <SpGrid size={16} className="fill-spotify-gray-700 group-hover:fill-white"/>
+        <SpGrid size={16} className="fill-spotify-gray-900 group-hover:fill-white"/>
         {/* <TfiViewGrid size={"0.9rem"} /> */}
         
       </button>
       <button
         onClick={() => setLibraryLayout('listLayout')}
 
-        className={`${libraryLayout === "listLayout" ? "hidden" : "block"} text-spotify-gray-700 group-hover:text-white`}
+        className={`${libraryLayout === "listLayout" ? "hidden" : "block"} text-spotify-gray-900 group-hover:text-white`}
       >
         <AiOutlineUnorderedList size={"1rem"} />
       </button>

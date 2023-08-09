@@ -1,5 +1,4 @@
 "use client";
-
 import React, {
   MouseEventHandler,
   useContext,
@@ -16,19 +15,15 @@ import { TPlaylistSearchParam } from "../../../../types/params";
 import { useParams } from "next/navigation";
 import { TPlayList } from "../../../../types/playlist";
 
+const getPlaylist = async (playlistID: string) => {
+  const response = await fetch(`localhost:4000/api/v1/playlists/${playlistID}`);
+  return response.json();
+};
 const Playlist = () => {
   const { playlistInView, libraryPlaylists } = usePlayLists();
   const [playlist, setPlayListInView] = playlistInView;
-  const Param: TPlaylistSearchParam = useParams();
-  useEffect(() => {
-    const [userLibraryPlayLists] = libraryPlaylists;
-    setPlayListInView(
-      userLibraryPlayLists.find(
-        (el) => el.playlist_id === Param.playlistID
-      ) as TPlayList
-    );
-  }, [playlist, libraryPlaylists, Param.playlistID, setPlayListInView]);
-  
+  const { playlistID }: TPlaylistSearchParam = useParams();
+
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
   //For now i will be using library playlist
   //But ideally the currentplayist should be fetched
@@ -50,15 +45,14 @@ const Playlist = () => {
   );
 };
 
-const getServerSideProps:GetServerSideProps = async (context:GetServerSidePropsContext) => {
-  const response = await fetch(`localhost:3000/api/v1/${context.params?.playlistID}`)
-  const data = await response.json()
+// const getServerSideProps:GetServerSideProps = async (context:GetServerSidePropsContext) => {
+//   const response = await fetch(`localhost:3000/api/v1/${context.params?.playlistID}`)
+//   const data = await response.json()
 
-  return {
-    props: {
-      data
-    }
-  }
-}
+//   return {
+//     props: {
+//       data
+//     }
+//   }
+// }
 export default Playlist;
- 

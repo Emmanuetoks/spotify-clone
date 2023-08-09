@@ -4,23 +4,23 @@ import React, { ReactNode } from "react";
 const ListLayout = ({children}:{children:ReactNode}) => {
   return (
     <div className="w-full table">
-      <div className="table-header-group">
-        <div className=" table-row font-mdeium text=sm">
+      <div className="Library__table-header hidden remove-on-collapse">
+        <div className=" table-row font-medium text-xs p-2">
           <div className=" table-cell">
-            <p>Title</p>
+            <p className="text-white">Title</p>
+          </div>
+          <div className=" table-cell ">
+            <p className="text-white w-full grid place-items-left">Date Added</p>
           </div>
           <div className=" table-cell">
-            <p>Date Added</p>
-          </div>
-          <div className=" table-cell">
-            <p>Played</p>
+            <p className="text-white grid w-full place-items-right">Played</p>
           </div>
         </div>
 
-        <Divider/>
       </div>
+      <Divider className="my-3 remove-on-collapse"/>
 
-      <div className="table-row-group">
+      <div className="table-row-group rounded">
         {children}
       </div>
     </div>

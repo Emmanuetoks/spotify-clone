@@ -1,5 +1,5 @@
 'use client'
-import SongCard from "@/components/cards/song-card";
+import SongCard from "@/components/cards/playlist-card";
 import React from "react";
 import dummy from "@/images/spotify--2pac.jpg";
 import { useParams } from "next/navigation";

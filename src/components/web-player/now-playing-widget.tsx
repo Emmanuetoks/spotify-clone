@@ -18,7 +18,7 @@ const NowPlayWidget = ({ imageUrl }: Props) => {
       </div>
       <div className="player__now-playing-details"></div>
       <div>
-        <h6 className="font-semibold text-white text-base tracking-wide">
+        <h6 className="font-medium text-white text-base tracking-wide">
           Gangstas paradize
         </h6>
         <p className="text-spotify-gray-700 text-sm">{"Coolio"}</p>

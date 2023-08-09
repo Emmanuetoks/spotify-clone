@@ -4,23 +4,52 @@
 @import "./footer.css";
 @import "./playlist-page.css";
 @import "./sidebar.css";
-@import './states.css';
-@import './section-page.css';
-@import './delete-dialog-box.css';
+@import "./states.css";
+@import "./section-page.css";
+@import "./delete-dialog-box.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@font-face {
+  font-family: Spotify;
+  src: url("../assets/fonts/CircularSpTitle-Tall-Bold-69995af8079e90f1d15130df13ad0c60.woff2");
+  font-weight: 600;
+} */
+
+@font-face {
+  font-family: Spotify;
+  src: url("../assets/fonts/CircularSp-Bold-fe1cfc14b7498b187c78fa72fb72d148.woff2");
+  font-weight: 700;
+}
+
+/* @font-face {
+  font-family: Spotify;
+  src: url("../assets/fonts/CircularSpTitle-Bold-2fbf72b606d7f0b0f771ea4956a8b4d6 (1).woff2");
+  font-weight: 400;
+} */
 
 
 @font-face {
   font-family: Spotify;
-  src: url('../assets/fonts/CircularSpotifyTxT-Book.ttf');
+  src: url("../assets/fonts/CircularSpTitle-Black-3f9afb402080d53345ca1850226ca724.woff2");
+  font-weight: 900;
 }
 
+@font-face {
+  font-family: Spotify;
+  src: url("../assets/fonts/CircularSp-Book-4eaffdf96f4c6f984686e93d5d9cb325.woff2");
+  font-weight: 400;
+}
+/* @font-face {
+  font-family: Spotify;
+  src: url("../assets/fonts/spoticon_regular_2.d728648c.woff2");
+  font-weight: 500;
+} */
 
 @layer base {
   body {
-    font-family: Spotify
+    font-family: Spotify;
   }
 }
 @layer {
@@ -46,5 +75,5 @@ To make an elemnt have a popup info, simply add a popup-into data attribute and 
   .hidden {
     display: none;
   }
-}
-  
+  }
+

@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <header className="space-y-4">
+    <header className="space-y-4 px-4">
       <div className="Library__modification-tools justify-between flex items-center w-full px-2">
         <button
           // data-popup-info="Hellow orld"
@@ -27,9 +27,9 @@ const Header = () => {
           onClick={toggleCollapse}
           className="Library__collapse-toggler flex gap-4 items-center hover-white cursor-pointer group"
         >
-          <SpLibraryV1 className="fill-spotify-gray-800 group-hover:fill-white" />
-          <SpLibraryV2 className="fill-spotify-gray-800 hover:fill-white hidden" />
-          <h5 className={'text-spotify-gray-800 group-hover:text-white font-medium'}>Your Library</h5>
+          <SpLibraryV1 className="fill-spotify-gray-900 group-hover:fill-white" />
+          <SpLibraryV2 className="fill-spotify-gray-900 hover:fill-white hidden" />
+          <h5 className={'text-spotify-gray-900 group-hover:text-white font-bold tracking-wide'}>Your Library</h5>
         </button>
 
         <div className="remove-on-collapse flex gap-4 items-center">

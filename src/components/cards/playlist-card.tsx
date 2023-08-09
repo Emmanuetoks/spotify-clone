@@ -4,47 +4,49 @@ import { BiPlay } from "react-icons/bi";
 import SpotifyPlayBtn from "../ui/spotify-play-button";
 import { TActiveTrack } from "@/context/web-player-context";
 import Link from "next/link";
-
+import { TPlayList } from "../../../types/playlist";
+import { dividerClasses } from "@mui/material";
+import { nanoid } from "nanoid";
+import   dummyiMg from '@/images/spotify--rema.jpg'
 // images gotten from api call will be injected
 // Texts gotten from api call will be injected in
 // This card is for songs, plalist but not for artists
 
 type Props = {
-  imgSrc: StaticImageData;
-  ImgAlt: string;
-  cardName?: string;
-  cardDesc?: string;
-  sourceID: string;
-  firstTrack: TActiveTrack;
+  data: TPlayList;
 };
 
-const SongCard = ({
-  imgSrc,
-  ImgAlt,
-  cardDesc,
-  cardName,
-  firstTrack,
-  sourceID,
-}: Props) => {
+const SongCard = ({ data }: Props) => {
   return (
-    <Link href={`playlist/${sourceID}`}>
-      <figure className="card min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group flex-grow flex-shrink">
+    <Link href={`/playlist/${data.id}`}>
+      <figure className="card min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group flex-grow flex-shrink h-full">
         <div className="relative card__cover w-full aspect-square bg-white">
-          <Image src={imgSrc} fill={true} alt={ImgAlt} />
+          {/* {data.images.length <= 4 ? (
+            <Image src={dummyiMg} alt="image" fill={true} />
+          ) : (
+            <div className="w-full h-full grid-cols-2 grid-rows-2">
+              {data.images.map((el) => (
+                <Image key={nanoid()} src={dummyiMg} fill={true} alt="image" />
+              ))}
+            </div>
+          )
+        } */}
+
+      <Image src={dummyiMg} alt="image" fill={true}/>
         </div>
 
         <figcaption className="card__details">
-          <h5 className="card__name font-medium text-white text-normal">
-            Anime Jamz
+          <h5 className="card__name font-bold text-white text-normal capitalize">
+          {data.name}
           </h5>
-          <p className="card__description text-[0.8rem] font-medium text-spotify-gray-200">
-            Lorem ipsum dolor sit amet consectetur
+          <p className="card__description text-[0.8rem] font-normal text-spotify-gray-900">
+            {data.description}
           </p>
         </figcaption>
 
         <SpotifyPlayBtn
-          trackSource={sourceID}
-          firstTrack={firstTrack}
+          trackSource={data.id}
+          firstTrack={{ name: "" }}
           className="absolute top-[50%] translate-y-3 right-4 opacity-0 group-hover:opacity-100 transition group-hover:-translate-y-3"
         />
       </figure>

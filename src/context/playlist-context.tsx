@@ -14,12 +14,12 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   // InitState will be gotten from user context that will be consumed in the future
   const playListsInitialState: PlayListsArray = [
-    { name: "Default PlayList", playlist_id: "testplaylistidroboskeke", description:'Test Playlist', owner:'Emmanuel Toks', likes:'2', tracks:'5', duration:'5hr 3min' },
+    { name: "Default PlayList", id: "testplaylistidroboskeke", description:'Test Playlist', owner:'Emmanuel Toks', likes:'2', tracks:'5', duration:'5hr 3min', type:'playlist' },
   ]; //Place holder For user fetched
 
   
   const [playlists, dispatch] = useReducer(reducer, playListsInitialState);
-  const [fetchedPlaylist, setFetchedPlaylist] = useState<null | TPlayList >(null)
+  const [fetchedPlaylist, setFetchedPlaylist] = useState<null | TPlayList >(null);
   function reducer(state: PlayListsArray, action: TReducerAction) {
     let stateUpdate = [...state];
     switch (action.type) {
@@ -29,14 +29,14 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
 
       case "update":
         stateUpdate = stateUpdate.map((el) =>
-          el.playlist_id === action.payload.playlist_id
+          el.id === action.payload.id
             ? { ...el, ...action.payload }
             : el
         );
         break;
       case "delete":
         stateUpdate = stateUpdate.filter(
-          (el) => el.playlist_id !== action.payload.playlist_id
+          (el) => el.id !== action.payload.id
         );
         router.push('/')
 

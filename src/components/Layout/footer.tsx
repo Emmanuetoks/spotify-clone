@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="flex flex-wrap w-full justify-between gap-5">
         <div className="footer__section flex-grow flex-shrink min-w-[15rem]">
           <h5 className="text-white font-bold text-md mb-1">Company</h5>
-          <div className="footer__main-links text-spotify-gray-100 font-medium">
+          <div className="footer__main-links text-spotify-gray-100 font-normal">
             <ul>
               <li>
                 <a href="">About</a>
@@ -23,7 +23,7 @@ const Footer = () => {
 
         <div className="footer__section min-w-[15rem] flex-grow flex-shrink">
           <h5 className="text-white font-bold text-md mb-1">Communities</h5>
-          <div className="footer__main-links text-spotify-gray-100 font-medium">
+          <div className="footer__main-links text-spotify-gray-100 font-normal">
             <ul>
               <li>
                 <a href="">For Artists</a>
@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="footer__section flex-grow flex-shrink min-w-[15rem]">
           <h5 className="text-white font-bold text-md mb-1">Useful links</h5>
-          <div className="footer__main-links text-spotify-gray-100 font-medium">
+          <div className="footer__main-links text-spotify-gray-100 font-normal">
             <ul>
               <li>
                 <a href="">Support</a>
@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
       <Divider color="black" className="my-6" />
-      <div className="footer__other-links flex gap-3 justify-between items-center text-spotify-gray-100 font-medium text-sm w-full flex-wrap">
+      <div className="footer__other-links flex gap-3 justify-between items-center text-spotify-gray-100 font-normal text-sm w-full flex-wrap">
         <ul className="flex gap-4 flex-wrap">
           <li>
             <a href="">Legal</a>

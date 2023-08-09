@@ -15,7 +15,7 @@ const Header = () => {
 
   const userName = useAuth().user.name;
   const [libraryPlayLists] = usePlayLists().libraryPlaylists
-  const playlistInView = libraryPlayLists.find(el => el.playlist_id === par.playlistID);
+  const playlistInView = libraryPlayLists.find(el => el.id === par.playlistID);
   return (
     <Suspense>
       <header className="playlist__header pt-20 pb-3 px-7 w-full">
@@ -29,13 +29,13 @@ const Header = () => {
             {userName === playlistInView?.owner ? (
               <h1
                 onClick={openModal}
-                className="text-normal sm:text-8xl py-3 font-black cursor-pointer"
+                className="text-normal sm:text-8xl py-3 font-black cursor-pointer truncate"
               >
-                {truncateString(playlistInView?.name as string, 17)}
+                {playlistInView?.name}
               </h1>
             ) : (
-              <h1 className="text-normal sm:text-8xl py-3 font-black cursor-pointer">
-                {truncateString(playlistInView?.name as string, 17)}
+              <h1 className="text-normal sm:text-8xl py-3 font-black cursor-pointer truncate">
+                {playlistInView?.name}
               </h1>
             )}
 

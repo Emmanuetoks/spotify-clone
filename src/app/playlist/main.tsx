@@ -6,6 +6,8 @@ import SpotifyPlayBtn from "@/components/ui/spotify-play-button";
 import SpHeartBtn from "@/components/icons/SpHeartBtn";
 import { useAuth } from "@/context/auth-context";
 import { usePlayLists } from "@/context/playlist-context";
+import Tracks from "./tracks";
+import TrackCard from "./track-card";
 
 const Main = () => {
   const [playlistInView] = usePlayLists().playlistInView;
@@ -28,7 +30,11 @@ const Main = () => {
         </div>
 
         {/* Playlist Songs */}
-        <div className="playlist__songs flex justify-between"></div>
+        <div className="playlist__songs w-full">
+<Tracks>
+<TrackCard/>
+</Tracks>
+        </div>
       </div>
     </main>
   );

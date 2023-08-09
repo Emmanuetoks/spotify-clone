@@ -1,25 +1,25 @@
-import SongCard from "@/components/cards/song-card";
+import SongCard from "@/components/cards/playlist-card";
 import Link from "next/link";
 
 import { ReactNode } from "react";
 
 type Props = {
   sectionName: string;
-  sectionLink: string;
-  cards?: { name: string; description: string }[];
+  sectionID: string;
   children: ReactNode;
 };
 
-const MusicSection = ({ sectionName, sectionLink, children }: Props) => {
+const SectionRow = ({ sectionName, sectionID, children }: Props) => {
   return (
     <section className="home__music-section space-y-4 w-full">
       <div className="flex w-full justify-between items-center">
-        <h2 className="text-2xl font-semibold text-white hover:underline cursor-pointer">
+       
+        <Link href={`/section${sectionID}`} className="text-2xl font-bold text-white hover:underline cursor-pointer capitalize">
           {sectionName}
-        </h2>
+        </Link>
 
         <Link
-          href={`/section${sectionLink}`}
+          href={`/section${sectionID}`}
           className="font-bold text-sm text-spotify-gray-200 hover:underline cursor-pointer"
         >
           Show all
@@ -33,4 +33,4 @@ const MusicSection = ({ sectionName, sectionLink, children }: Props) => {
   );
 };
 
-export default MusicSection;
+export default SectionRow;

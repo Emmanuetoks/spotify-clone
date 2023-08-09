@@ -15,8 +15,8 @@ const DesktopNavBar = () => {
           {/* <GoHome size={"2rem"} /> */}
           <div className="flex w-fit items-center gap-5">
             <SpHome className="active fill-white hidden"/>
-            <SpHomeV2 className={`normal fill-spotify-gray-200 mx-auto group-hover:fill-white`} />
-            <h5 className={`${activeBar==='home'?'text-spotify-gray-600':'text-spotify-gray-200'}   font-medium group-hover:text-[#fff]`}>
+            <SpHomeV2 className={`normal fill-spotify-gray-900 mx-auto group-hover:fill-white`} />
+            <h5 className={`${activeBar==='home'?'text-spotify-gray-900':'text-spotify-gray-600'}   font-bold group-hover:text-[#fff]`}>
               Home
             </h5>
           </div>
@@ -25,9 +25,9 @@ const DesktopNavBar = () => {
         <ActiveLink onClick={() => setActiveBar('search')} href={"/search"} className="nav-link w-full flex group">
           {/* <BiSearchAlt size={"2rem"} /> */}
           <div className="flex w-fit items-center justify-center gap-5">
-            <SpSearchV1 className={`normal fill-spotify-gray-200 mx-auto group-hover:fill-white`} />
+            <SpSearchV1 className={`normal fill-spotify-gray-900 mx-auto group-hover:fill-white`} />
             <SpSearchV2 className="active fill-white hidden"/>
-            <h5 className={`${activeBar==='search'?'text-spotify-gray-600':'text-spotify-gray-200'} text-spotify-gray-200 font-medium group-hover:text-[#fff]`}>
+            <h5 className={`${activeBar==='search'?'text-spotify-gray-900':'text-spotify-gray-600'} text-spotify-gray-200 font-bold group-hover:text-[#fff]`}>
               Search
             </h5>
           </div>

@@ -11,15 +11,13 @@ const Tracks = ({ children }: Props) => {
         <div className="table-row text-spotify-gray-100">
           <div className="table-cell">#</div>
           <div className="table-cell">Title</div>
-          <div className="table-cell track-table__albulm">Albulm</div>
-          <div className="table-cell track-table__date-added">Date added</div>
-          <div className="table-cell track-table__duration">duration</div>
+          <div className="table-cell albulm">Albulm</div>
+          <div className="table-cell date-added">Date added</div>
+          <div className="table-cell duration">duration</div>
         </div>
         <Divider component={"div"} />
       </div>
-      <div className="track-table__tracks">
         <div className="table-row-group">{children}</div>
-      </div>
     </div>
   );
 };
