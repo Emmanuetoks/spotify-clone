@@ -13,11 +13,13 @@
     .Library__grid-layout {
       display: grid !important;
       grid-template-columns: repeat(3, minmax(5rem, 1fr));
-      gap: 1rem;
-      .grid-card {
-        display: grid;
+      .grid-card-container {
+        display: block;
+
+        .grid-card {
         grid-template-rows: auto 44px;
         row-gap: 8px;
+        }
       }
 
       .normal-card {

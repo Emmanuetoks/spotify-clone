@@ -14,35 +14,40 @@ type Props = {
 };
 
 const TrackCard = ({
-  position='1',
+  position = "1",
   image,
-  artist="Kizz daniek",
-  name="Kizz daniek",
-  album="freefaya",
-  dateAdded,
-  duration,
+  artist = "the WORLD",
+  name = "Nightmare",
+  album = "thw WORLD Ruler",
+  dateAdded = "2 weeks ago",
+  duration = "3:48",
 }: Props) => {
   return (
-    <div className="track-card table-row">
-      <div className="table-cell">{position}</div>
+    <div className="track-card table-row hover:bg-[#ffffff1a]">
+      <div className="table-cell ">
+        <p className="pl-2 grid w-full place-items-center text-spotify-gray-900 h-full py-4">
+          {position}
+        </p>
+      </div>
       <div className="table-cell">
-        <div className="flex gap-2">
-          <div className="track__cover w-8 aspect-square"></div>
-          <div className="flex flex-col justify-between items-start h-full text-white">
-            <p className=" text-[1.5rem]">{name}</p>
-            <p className=" text-[1rem]">{artist}</p>
+          <div className="flex gap-2 items-center h-full">
+            <div className="track__cover aspect-square bg-spotify-black-900"></div>
+            <div className="flex flex-col justify-between items-start h-full text-spotify-gray-800 font-normal">
+              <p className=" text-base text-white">{name}</p>
+              <p className=" text-base">{artist}</p>
+            </div>
           </div>
-        </div>
       </div>
-      <div className="table-cell albulm">
-        <p>{album}</p>
+      <div className="table-cell album text-spotify-gray-900">
+        <p className='w-full grid place-items-start py-4'>{album}</p>
       </div>
-      <div className="table-cell date-added">
+      <div className="table-cell date-added text-spotify-gray-800">
         <p>{dateAdded}</p>
-        <LikeBtn />
       </div>
 
-      <div className="table-cell duration">{duration}</div>
+      <div className="table-cell duration text-spotify-gray-800">
+        <p className="w-full grid place-items-end">{duration}</p>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 "use client";
-
 import { usePlayLists } from "@/context/playlist-context";
 import Link from "next/link";
 import truncateString from "@/utils/truncateString";
@@ -10,26 +9,28 @@ import { nanoid } from "nanoid";
 import GridCard from "./cards/grid-card";
 import GridLayout from "./layouts/grid-layout";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import { Suspense } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getLibraryPlaylists } from "@/utils/getLibraryPlaylists";
 const PlaylistMain = () => {
   const [layout] = useLibraryContext();
 
   const [playLists] = usePlayLists().libraryPlaylists;
 
+  if (!playLists) return <h5>Loading</h5>
   if (layout === "gridLayout")
     return (
       <div className="h-full font-normal">
         <main className="Library__main ">
-          <OverlayScrollbarsComponent className="h-[40vh] overlay-comp">
+          <OverlayScrollbarsComponent
+            options={{ scrollbars: { theme: "os-theme-sp" } }}
+            className="h-[40vh] overlay-comp"
+          >
             <GridLayout>
               {playLists.map((el) => (
-                <GridCard
-                  key={nanoid()}
-                  name={el.name}
-                  owner={el.owner}
-                  type={el.type}
-                  playlist_id={el.id}
-                  firstTrack={{ name: "hello" }}
-                />
+                <Suspense key={el.id}>
+                  <GridCard data={el} />
+                </Suspense>
               ))}
             </GridLayout>
           </OverlayScrollbarsComponent>
@@ -43,16 +44,15 @@ const PlaylistMain = () => {
         {playLists.length === 0 ? (
           <div className="remove-on-collapse">No Playlist</div>
         ) : (
-          <OverlayScrollbarsComponent className='h-[40vh] w-full overlay-comp' options={{scrollbars:{theme:'os-theme-light'}}}>
+          <OverlayScrollbarsComponent
+            className="h-[40vh] w-full overlay-comp "
+            options={{ scrollbars: { theme: "os-theme-sp" } }}
+          >
             <ListLayout>
-              {playLists.map((playList) => (
-                <ListCard
-                  key={nanoid()}
-                  playlist_id={playList.id}
-                  owner={playList.owner}
-                  type={playList.type}
-                  name={playList.name}
-                />
+              {playLists.map((el) => (
+                <Suspense key={el.id}>
+                  <ListCard data={el} />
+                </Suspense>
               ))}
             </ListLayout>
           </OverlayScrollbarsComponent>

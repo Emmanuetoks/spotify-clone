@@ -1,4 +1,6 @@
 'use client'
+import { getLibraryPlaylists } from "@/utils/getLibraryPlaylists";
+import { useQuery } from "@tanstack/react-query";
 import {
   ReactNode,
   useContext,
@@ -22,10 +24,9 @@ export const LibraryContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [libraryLayout, setLibraryLayout] = useState<
-    "gridLayout" | "listLayout"
-  >("listLayout");
-  return (
+  const [libraryLayout, setLibraryLayout] = useState<"gridLayout" | "listLayout">("listLayout");
+
+   return (
     <LibraryContext.Provider value={[libraryLayout, setLibraryLayout]}>
       {children}
     </LibraryContext.Provider>

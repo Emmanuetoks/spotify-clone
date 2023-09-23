@@ -13,14 +13,16 @@ const SectionRow = ({ sectionName, sectionID, children }: Props) => {
   return (
     <section className="home__music-section space-y-4 w-full">
       <div className="flex w-full justify-between items-center">
-       
-        <Link href={`/section${sectionID}`} className="text-2xl font-bold text-white hover:underline cursor-pointer capitalize">
+        <Link
+          href={`/section/${sectionID}`}
+          className="text-2xl font-bold text-white hover:underline cursor-pointer capitalize"
+        >
           {sectionName}
         </Link>
 
         <Link
-          href={`/section${sectionID}`}
-          className="font-bold text-sm text-spotify-gray-200 hover:underline cursor-pointer"
+          href={`/section/${sectionID}`}
+          className="font-bold text-sm text-spotify-gray-800 hover:underline cursor-pointer"
         >
           Show all
         </Link>

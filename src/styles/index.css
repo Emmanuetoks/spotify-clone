@@ -29,7 +29,6 @@
   font-weight: 400;
 } */
 
-
 @font-face {
   font-family: Spotify;
   src: url("../assets/fonts/CircularSpTitle-Black-3f9afb402080d53345ca1850226ca724.woff2");
@@ -52,7 +51,7 @@
     font-family: Spotify;
   }
 }
-@layer {
+@layer components {
   /* 
 To make an elemnt have a popup info, simply add a popup-into data attribute and add a popup-candidate className
  */
@@ -75,5 +74,19 @@ To make an elemnt have a popup info, simply add a popup-into data attribute and 
   .hidden {
     display: none;
   }
-  }
 
+.os-theme-sp.os-scrollbar-vertical {
+ --os-size: 0.8rem;
+ --os-handle-bg: #a7a7a7;
+ --os-handle-bg-hover: #a7a7a7;
+ --os-handle-bg-active:#a7a7a7 ;
+}
+
+.os-theme-sp.os-scrollbar-handle {
+  visibility: hidden;
+}
+
+.os-theme-sp.os-scrollbar-handle:hover {
+  visibility: visible;
+}
+}

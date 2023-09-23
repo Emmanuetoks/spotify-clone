@@ -40,9 +40,8 @@ const CreateContextMenu = ({
       payload: {
         name: `My Playlist #${newPlayListName}`,
         id: nanoid(),
-        owner:'Emmanuel Toks',
-        type:'Playlist',
-        
+        owner: { display_name: "Emmanuel Toks", id: "rr", type: "artist" },
+        type: "playlist",
       },
     });
     closePopper(false);

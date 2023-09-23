@@ -28,11 +28,20 @@
     }
   }
 
-  @container playlist-page (max-width:50rem) {
-    
+  @container playlist-page (max-width:40rem) {
+    .track-table {
+      .date-added {
+        display: none !important;
+      }
+    }
   }
 
-  @container playlist-page (max-width:50rem) {
+  @container playlist-page (max-width:30rem) {
+    .track-table {
+      .album {
+        display: none !important;
+      }
+    }
   }
   .Resizer.vertical {
     height: 100%;

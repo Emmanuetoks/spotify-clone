@@ -1,69 +1,87 @@
+"use client";
 import SpMusicNote from "@/components/icons/SpMusicNote";
 import SpotifyPlayBtn from "@/components/ui/spotify-play-button";
-import { TActiveTrack } from "@/context/web-player-context";
+import {
+  TActiveTrack,
+  useWebPlayerContext,
+} from "@/context/web-player-context";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
+import { TPlaylistSearchParam } from "../../../../types/params";
+import { TPlayList } from "../../../../types/playlist";
+import SpImage from "@/components/ui/SpImage";
 
 type Props = {
-  name?: string;
-  playlist_id: string;
-  owner: string;
-  type: string;
-  numberOfSongs?: string;
-  firstTrack: TActiveTrack;
+  data: TPlayList;
 };
-const GridCard = ({ name, playlist_id, owner, type, firstTrack }: Props) => {
+const GridCard = ({ data }: Props) => {
+  const activePlaylistId: TPlaylistSearchParam = useParams();
+
   return (
     <>
-      <Link
-        className=""
-        href={`/playlist/${playlist_id}`}
-      >
-        <figure className="w-full relative bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer group hidden grid-card overflow-hidden">
-          <div className="cover w-full aspect-square bg-spotify-black-200 grid place-items-center">
-            <SpMusicNote className="scale-[1.5] fill-spotify-gray-700" />
-          </div>
-          <div className="details w-full">
-            <p className="font-bold text-base truncate">{name}</p>
-            <p className="playlist__owner text-spotify-gray-900 text-xs sm:text-sm font-normal ">
-              {type.toLocaleLowerCase() === "artist" ? (
-                <span>Artist</span>
-              ) : (
-                <>
-                  <>{type}</>
-                  <>{" • "}</>
-                  <>{owner}</>
-                </>
-              )}
-            </p>
-          </div>
-          <SpotifyPlayBtn
-            trackSource={playlist_id}
-            firstTrack={{ name: "hello" }}
-            className="absolute top-[50%] translate-y-3 right-4 opacity-0 group-hover:opacity-100 transition group-hover:-translate-y-3"
-          />
-        </figure>
-      </Link>
+      <div className={`relative hidden grid-card-container group rounded-md ${
+              activePlaylistId.playlistID === data.id ? "bg-[#181818]" : null
+            } ${ useWebPlayerContext().activeTrackSource[0] === data.id ? 'bg-[#181818]': null}`}>
+        <Link href={`/playlist/${data.id}`}>
+          <figure
+            className={`w-full grid-card relative rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-[#1a1a1a] active:bg-[#000] cursor-pointer overflow-hidden`}
+          >
+            <div className="cover w-full aspect-square bg-spotify-black-900 grid place-items-center rounded">
+              <SpImage images={data.images} />
+            </div>
+            <div className="details w-full">
+              <p className="font-bold text-base text-white truncate">
+                {data.name}
+              </p>
+              <p className="playlist__owner text-spotify-gray-800 text-xs sm:text-base font-normal capitalize truncate">
+                { (
+                  <>
+                    <>{data.type}</>
+                    <>{" • "}</>
+                    <>{data.owner?.display_name}</>
+                  </>
+                )}
+              </p>
+            </div>
+          </figure>
+        </Link>
+        <SpotifyPlayBtn
+          trackSource={data.id}
+          firstTrack={{ name: "" }}
+          className={`absolute top-[45%] right-4 transition ${
+            useWebPlayerContext().activeTrackSource[0] === data.id
+              ? "opacity-100"
+              : "opacity-0 translate-y-3 group-hover:opacity-100 group-hover:-translate-y-0"
+          }`}
+        />
+      </div>
 
-      <Link href={`/playlist/${playlist_id}`} className="normal-card hover:bg-spotify-black-400">
-        <div className="sm:flex w-fit sm:w-auto flex-col sm:flex-row gap-3 p-2">
+      {/*Co,ponent to be displayed as normal card when sidebar is small */}
+      <Link
+        href={`/playlist/${data.id}`}
+        className={`normal-card rounded w-full library__user-playlist-card items-center cursor-pointer hover:bg-[#191919] flex-shrink sidebar__icon active:bg-black ${
+          activePlaylistId.playlistID === data.id ? "active-playlist" : null
+        } overflow-hidden`}
+      >
+        <div className="sm:flex w-fit sm:w-auto flex-col sm:flex-row gap-3 p-2 hover:bg-[#191919]">
           <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 user-playlist-cover rounded grid place-items-center shadow-[#101010] shadow-md">
-            <SpMusicNote className="fill-spotify-gray-200" />
+            <SpImage size="small" images={data.images} />
           </div>
 
           <div className="user-playlist-details remove-on-collapse flex flex-col items-start justify-between h-full py-2">
             <h6 className="playlist__name text-sm sm:text-md text-white font-normal">
-              {name}
+              {data.name}
             </h6>
             {/* User Playlist Name  */}
-            <p className="playlist__owner text-spotify-gray-900 text-xs sm:text-sm font-normal">
-              {type.toLocaleLowerCase() === "artist" ? (
+            <p className="playlist__owner text-spotify-gray-800 text-xs sm:text-sm font-normal">
+              {data.type?.toLocaleLowerCase() === "artist" ? (
                 <span>Artist</span>
               ) : (
                 <>
-                  <span className=" capitalize">{type}</span>
+                  <span className=" capitalize">{data.type}</span>
                   <span>{" • "}</span>
-                  <span>{owner}</span>
+                  <span>{data.owner?.display_name}</span>
                 </>
               )}
             </p>

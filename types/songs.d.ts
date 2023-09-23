@@ -6,8 +6,7 @@ export type TSong = {
     songId?:string;
 }
 
-
-type TReducerAction= {
+                                                                                                                                                        type TReducerAction= {
     type:string;
     payload: TSong
 }

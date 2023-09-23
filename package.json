@@ -20,6 +20,7 @@
     "dotenv": "^16.3.1",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
+    "html-react-parser": "^4.2.1",
     "nanoid": "^4.0.2",
     "next": "13.4.9",
     "overlayscrollbars": "^2.2.1",

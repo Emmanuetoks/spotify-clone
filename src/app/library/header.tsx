@@ -1,7 +1,5 @@
 "use client";
 import React, { MouseEventHandler, useEffect, useRef } from "react";
-import FilterPlayList from "./filter-playlist";
-import Search from "./search-library";
 import AddPlayList from "./create-playlist";
 import SpLibraryV1 from "@/components/icons/SpSearchLibraryV1";
 import SpLibraryV2 from "@/components/icons/SpLibraryV2";
@@ -18,8 +16,8 @@ const Header = () => {
   };
 
   return (
-    <header className="space-y-4 px-4">
-      <div className="Library__modification-tools justify-between flex items-center w-full px-2">
+    <header className="space-y-4 px-2">
+      <div className="Library__modification-tools justify-between flex items-center w-full">
         <button
           // data-popup-info="Hellow orld"
           id="libraryCollapseToggler"
@@ -29,7 +27,7 @@ const Header = () => {
         >
           <SpLibraryV1 className="fill-spotify-gray-900 group-hover:fill-white" />
           <SpLibraryV2 className="fill-spotify-gray-900 hover:fill-white hidden" />
-          <h5 className={'text-spotify-gray-900 group-hover:text-white font-bold tracking-wide'}>Your Library</h5>
+          <h5 className={'text-spotify-gray-900 group-hover:text-white font-bold'}>Your Library</h5>
         </button>
 
         <div className="remove-on-collapse flex gap-4 items-center">
@@ -38,7 +36,7 @@ const Header = () => {
           <LibrarySizeControllers />
         </div>
       </div>
-
+{/* 
       <div className="remove-on-collapse">
         <button className="bg-spotify-black-100 rounded-lg px-3 py-2 hover:bg-spotify-gray-100 text-white">
           Playlists
@@ -47,7 +45,7 @@ const Header = () => {
       <div className="library__header w-full flex justify-between px-2 remove-on-collapse">
         <Search />
         <FilterPlayList />
-      </div>
+      </div> */}
     </header>
   );
 };

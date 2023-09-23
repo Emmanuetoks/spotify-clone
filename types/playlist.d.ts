@@ -1,15 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
+import { User } from "./owner";
 
-export type PlayListContextType = 
-  {
-    libraryPlaylists: [
-      TPlayList[],
-      Dispatch<TReducerAction>
-    ];
+export type PlayListContextType = {
+  libraryPlaylists: [TPlayList[], Dispatch<TReducerAction>];
 
-    playlistInView:[TPlayList | null, Dispatch<SetStateAction<TPlayList | null>>]
-  }
-;
+  playlistInView: [
+    TPlayList | null,
+    Dispatch<SetStateAction<TPlayList | null>>
+  ];
+};
 
 export type PlayListsArray = TPlayList[]; //Array of playlists state that will be provided to all
 
@@ -23,13 +22,13 @@ type TReducerAction = {
 type FetchedPlaylist = TPlayList | null;
 
 export type TPlayList = {
-  name?: string;
+  name: string;
   id: string;
   description?: string;
   likes?: string;
   duration?: string;
-  tracks?: string;
-  owner: string;
-  type:string;
-images?:{url:string, height:number|null,  width:number|null }[ ]
+  tracks?: {href:string, total:number};
+  owner?: User;
+  type?: "playlist" | "artist" | "album";
+  images?: { url: string; height: number | null; width: number | null }[];
 }; //Playlist Type

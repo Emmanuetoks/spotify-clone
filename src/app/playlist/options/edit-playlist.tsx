@@ -1,5 +1,5 @@
 "use client";
-import { useEditModalState } from "@/context/editmodal";
+import { useEditModalState } from "@/context/editmodal-context";
 
 
 const EditPlayList = () => {

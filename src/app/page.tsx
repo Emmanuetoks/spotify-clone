@@ -32,24 +32,27 @@ const getHomeFeed = async () => {
 };
 const Home = async () => {
   const data: Result = (await getHomeFeed()).data;
-console.log(data[0].type ==='category');
-
+if (!data) return <h3>An error has occured</h3>
   return (
-    <div className="home space-y-8 px-7 py-5">
-      <Suspense key={nanoid()} fallback={<p>Hello</p>}>
+    <div className="home space-y-8 px-7 py-5 min-h-[90vh]">
+      <Suspense fallback={<p>Hello</p>}>
         {data.map((el) => (
           <SectionRow
-            key={nanoid()}
+            key={el.name}
             sectionID={el.id as string}
             sectionName={el.name}
           >
             {el.type === "category" &&
-              el.playlists.map((el) => (
-                <SongCard
-                 key={el.description}
-                 data={el}
-                />
-              ))}
+              el.playlists.map((el) => {
+                switch (el.type) {
+                  case "playlist":
+                    return <SongCard key={el.description} data={el} />;
+                  case "artist":
+                    return <ArtistCard />;
+                  default:
+                    return null;
+                }
+              })}
           </SectionRow>
         ))}
       </Suspense>

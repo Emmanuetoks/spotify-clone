@@ -1,13 +1,21 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { BiPlay } from "react-icons/bi";
+import parse from 'html-react-parser'
 import SpotifyPlayBtn from "../ui/spotify-play-button";
-import { TActiveTrack } from "@/context/web-player-context";
+import {
+  TActiveTrack,
+  useWebPlayerContext,
+} from "@/context/web-player-context";
 import Link from "next/link";
 import { TPlayList } from "../../../types/playlist";
 import { dividerClasses } from "@mui/material";
 import { nanoid } from "nanoid";
-import   dummyiMg from '@/images/spotify--rema.jpg'
+import dummyiMg from "@/images/spotify--rema.jpg";
+import SpMusicNote from "../icons/SpMusicNote";
+import PlaylistMain from "@/app/library/main";
+import SpImage from "../ui/SpImage";
 // images gotten from api call will be injected
 // Texts gotten from api call will be injected in
 // This card is for songs, plalist but not for artists
@@ -16,45 +24,45 @@ type Props = {
   data: TPlayList;
 };
 
-const SongCard = ({ data }: Props) => {
+const PlaylistCard = ({ data }: Props) => {
   return (
-    <Link href={`/playlist/${data.id}`}>
-      <figure className="card min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none spotify-song-card  bg-spotify-black-600 rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-spotify-black-400 cursor-pointer relative group flex-grow flex-shrink h-full">
-        <div className="relative card__cover w-full aspect-square bg-white">
-          {/* {data.images.length <= 4 ? (
-            <Image src={dummyiMg} alt="image" fill={true} />
-          ) : (
-            <div className="w-full h-full grid-cols-2 grid-rows-2">
-              {data.images.map((el) => (
-                <Image key={nanoid()} src={dummyiMg} fill={true} alt="image" />
-              ))}
-            </div>
-          )
-        } */}
+    <div className="relative group bg-spotify-black-600 h-full hover:bg-spotify-black-400 w-full rounded-md active:bg-[#000] sp-playlist-card">
+      <Link href={`/playlist/${data.id}`}>
+        <figure
+          className={`home-ps-card min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none rounded-md space-y-3 sm:p-4 sm:w-full transition cursor-pointer flex-grow flex-shrink h-full ${
+            useWebPlayerContext().activeTrack[0]?.uri === data.id
+              ? "bg-spotify-black-400"
+              : null
+          }`}
+        >
+          <div className="relative card__cover w-full aspect-square bg-spotify-black-900 pointer-evnts-none">
+            <SpImage images={data.images} />
+          </div>
 
-      <Image src={dummyiMg} alt="image" fill={true}/>
-        </div>
-
-        <figcaption className="card__details">
-          <h5 className="card__name font-bold text-white text-normal capitalize">
-          {data.name}
-          </h5>
-          <p className="card__description text-[0.8rem] font-normal text-spotify-gray-900">
-            {data.description}
-          </p>
-        </figcaption>
-
-        <SpotifyPlayBtn
-          trackSource={data.id}
-          firstTrack={{ name: "" }}
-          className="absolute top-[50%] translate-y-3 right-4 opacity-0 group-hover:opacity-100 transition group-hover:-translate-y-3"
-        />
-      </figure>
-      {/* <Mobile /> */}
-    </Link>
+          <figcaption className="card__details">
+            <h5 className="card__name font-bold text-white text-normal capitalize truncate">
+              {data.name}
+            </h5>
+            <p className="card__description text-[0.8rem] font-normal text-spotify-gray-800">
+              {parse(data.description as string)}
+            </p>
+          </figcaption>
+        </figure>
+        {/* <Mobile /> */}
+      </Link>
+      <SpotifyPlayBtn
+        trackSource={data.id}
+        firstTrack={{ name: "" , uri: 'uiuie', next: 'ukdhod', prev:'odio'}}
+        className={`absolute top-[45%] right-4 transition ${
+          useWebPlayerContext().activeTrack[0]?.uri === data.id
+            ? "opacity-100"
+            : "opacity-0 translate-y-3 group-hover:opacity-100 group-hover:-translate-y-0"
+        }`}
+      />
+    </div>
   );
 };
-export default SongCard;
+export default PlaylistCard;
 
 /**
  * -------Create SVG
@@ -78,13 +86,6 @@ export default SongCard;
  *
  *
  * ---COLLAPSED LIBRARY
- *
- *
- *
- *
- *
- *
- *
  * NEW COLORS
  * PLAYLIST__SONGS-COMPONENT  BG-COLOR---#121212
  *

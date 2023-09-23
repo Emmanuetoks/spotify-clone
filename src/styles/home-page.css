@@ -12,11 +12,15 @@
     gap: 1rem;
   }
 
+  .home-ps-card {
+    grid-template-rows: auto minmax(4rem, 6rem);
+  }
+
   @container music-section (max-width: 65rem) {
     .home__card-container {
       grid-template-columns: repeat(5, minmax(5rem, 25rem));
 
-      .spotify-song-card:nth-child(6) {
+      .sp-playlist-card:nth-child(6) {
         display: none;
       }
     }
@@ -25,8 +29,8 @@
     .home__card-container {
       grid-template-columns: repeat(4, minmax(5rem, 25rem));
 
-      .spotify-song-card:nth-child(5),
-      .spotify-song-card:nth-child(6) {
+      .sp-playlist-card:nth-child(5),
+      .sp-playlist-card:nth-child(6) {
         display: none;
       }
     }
@@ -35,9 +39,9 @@
     .home__card-container {
       grid-template-columns: repeat(3, minmax(5rem, 20rem));
 
-      .spotify-song-card:nth-child(4),
-      .spotify-song-card:nth-child(5),
-      .spotify-song-card:nth-child(6) {
+      .sp-playlist-card:nth-child(4),
+      .sp-playlist-card:nth-child(5),
+      .sp-playlist-card:nth-child(6) {
         display: none;
       }
     }
@@ -47,10 +51,10 @@
       grid-template-columns: repeat(2, minmax(5rem, 15rem));
       gap: 1rem;
 
-      .spotify-song-card:nth-child(3),
-      .spotify-song-card:nth-child(4),
-      .spotify-song-card:nth-child(5),
-      .spotify-song-card:nth-child(6) {
+      .sp-playlist-card:nth-child(3),
+      .sp-playlist-card:nth-child(4),
+      .sp-playlist-card:nth-child(5),
+      .sp-playlist-card:nth-child(6) {
         display: none;
       }
     }

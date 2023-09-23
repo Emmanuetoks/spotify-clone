@@ -4,39 +4,47 @@ import {
   useWebPlayerContext,
 } from "@/context/web-player-context";
 import React, { Suspense } from "react";
-import { BiPlay } from "react-icons/bi";
-
-
+import { BiPause, BiPlay } from "react-icons/bi";
+import { AudioTrack } from "../../../types";
 type Props = {
   className?: string;
   trackSource?: string;
-  firstTrack?: TActiveTrack;
+  firstTrack?: AudioTrack;
 };
 
-//
-const SpotifyPlayBtn = ({ className, trackSource, firstTrack }: Props) => {
+const SpotifyPlayBtn = ({
+  className,
+  trackSource,
+  firstTrack = {
+    name: "hello",
+    uri: "../../assets/one-piece_opening-8-crazy-rainbow",
+    next: "jsk",
+    prev: "jsjks",
+  },
+}: Props) => {
   const [activeTrack, setActiveTrack] = useWebPlayerContext().activeTrack;
-
-  const [activeTrackSource, setActiveTrackSource] =
-    useWebPlayerContext().activeTrackSource;
-
+  const [playPause, setPlayPause] = useWebPlayerContext().playerState;
+  const loadTrack = useWebPlayerContext().loadTrack;
   const handleClick = () => {
-    if (!(activeTrackSource === trackSource)) {
-      setActiveTrackSource(trackSource as string);
-      setActiveTrack(firstTrack as TActiveTrack);
+    if (!(activeTrack?.uri === trackSource) && !firstTrack) {
+      loadTrack(firstTrack);
     }
+
     //Toggle Play or pause
+    setPlayPause((prevVal) => !prevVal);
   };
   const tailwindPossibles = [className];
   return (
-    <Suspense>
-      <button
-        className={`spotify-play-button grid bg-spotify-green max-w-[3rem] aspect-square rounded-full place-items-center pl-1 hover:bg-green-400 hover:scale-105 active:bg-spotify-green active:scale-100 $ 
-      cursor-pointer ${className}`}
-      >
-        <BiPlay size={"100%"} color="black" />
-      </button>
-    </Suspense>
+    <button
+      className={`spotify-play-button z-20 grid bg-spotify-green max-w-[2.7rem] aspect-square rounded-full place-items-center pl-1 hover:bg-green-400 hover:scale-105 active:bg-spotify-green active:scale-100 cursor-pointer ${className}`}
+      onClick={handleClick}
+    >
+      {!playPause ? (
+        <BiPlay color="black" size={"100%"} />
+      ) : (
+        <BiPause color="black" size={"100%"} />
+      )}
+    </button>
   );
 };
 

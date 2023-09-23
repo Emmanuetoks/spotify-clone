@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Dispatch,
   ReactNode,
@@ -7,12 +7,15 @@ import {
   useContext,
   useState,
 } from "react";
-
+import { AudioTrack } from "../../types";
+import { loadTrack } from "@/utils/webPlayerHelpers";
 const webPlayerContext = createContext<WebPlayerContext | null>(null);
 
 interface WebPlayerContext {
-  activeTrack: [TActiveTrack, Dispatch<SetStateAction<TActiveTrack | null>>];
-  activeTrackSource: [string | null, Dispatch<SetStateAction<string | null>>]
+  activeTrack: [AudioTrack | null, Dispatch<SetStateAction<AudioTrack | null>>];
+  playerState: [boolean, Dispatch<SetStateAction<boolean>>];
+  loadTrack: (track: AudioTrack) => void;
+  webPlayer: HTMLAudioElement;
 }
 
 export type TActiveTrack = {
@@ -20,14 +23,20 @@ export type TActiveTrack = {
 } | null;
 
 const WebPlayerContextProvider = ({ children }: { children: ReactNode }) => {
-  const [currentTrack, setCurrentTrack] = useState<TActiveTrack | null>({name:'kama'});
-  const [trackSource, setTrackSource] = useState<string| null>('4t4545')
+  const [currentTrack, setCurrentTrack] = useState<AudioTrack | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const audio = new Audio('../assets/one-piece_opening-8-crazy-rainbow');
+  const loadTrack = (track: AudioTrack) => {
+    audio.src = track.uri;
+    setCurrentTrack(track)
+  };
+
   const contextValue: WebPlayerContext = {
     activeTrack: [currentTrack, setCurrentTrack],
-    activeTrackSource:[trackSource, setTrackSource]
-    
+    playerState: [isPlaying, setIsPlaying],
+    loadTrack,
+    webPlayer: audio,
   };
-  
   return (
     <webPlayerContext.Provider value={contextValue}>
       {children}

@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import LikeBtn from "../ui/like-btn";
-import dummy from "@/images/spotify--billie.jpg";
+import dummy from "@/images/spotify--rema.jpg";
 import Image from "next/image";
 import { useWebPlayerContext } from "@/context/web-player-context";
 type Props = {
@@ -12,16 +12,15 @@ const NowPlayWidget = ({ imageUrl }: Props) => {
   return (
     <div className="w-[20rem]">
 
-    <div className="player__now-playing-widget flex gap-2 items-center">
-      <div className="player__now-playing-cover w-16 aspect-square relative">
-        <Image src={dummy} alt="spotifu" fill={true} />
+    <div className="player__now-playing-widget flex gap-3 items-center">
+      <div className="player__now-playing-cover w-[3.5rem] aspect-square relative rounded">
+        <Image src={dummy} alt="spotifu" fill={true} className="rounded" />
       </div>
-      <div className="player__now-playing-details"></div>
-      <div>
-        <h6 className="font-medium text-white text-base tracking-wide">
-          Gangstas paradize
+      <div className="">
+        <h6 className="font-normal text-white text-base">
+          the WORLD
         </h6>
-        <p className="text-spotify-gray-700 text-sm">{"Coolio"}</p>
+        <p className="text-spotify-gray-800 text-sm font-normal">{"Coolio"}</p>
       </div>
 
       <div className="">

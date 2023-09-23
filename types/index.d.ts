@@ -24,3 +24,10 @@ export type ContentCard = {
     description:string;
     sourceID:string;
 }
+
+export type AudioTrack = {
+    name:string;
+    uri:string;
+    next:string;
+    prev:string;
+    }

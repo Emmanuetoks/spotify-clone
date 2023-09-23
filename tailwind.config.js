@@ -8,6 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'spotify-elevated':{
+          'base':'#242424',
+          'highlight': '#2a2a2a',
+          'press':'#000'
+        },
+        'spotify-bg-tinted':{
+        },
+
         'spotify-green':'#1db954',
         'spotify-black': {
           100: '#212121',
@@ -19,7 +27,6 @@ module.exports = {
           700:'#3e3e3e',
           800:'#272727',
           900:'#2d2d2d',
-          x:'#121212'
         },
         'spotify-gray': {
           100:'#535353',
@@ -32,7 +39,6 @@ module.exports = {
           800:'#a7a7a7',
           900:'#ffffffb3',
         },
-
         "spotify-transparent-black": '#08070a'
       }
     },
