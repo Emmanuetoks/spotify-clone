@@ -29,7 +29,7 @@ const PlaylistMain = () => {
             <GridLayout>
               {playLists.map((el) => (
                 <Suspense key={el.id}>
-                  <GridCard data={el} />
+                  <GridCard playlist={el} />
                 </Suspense>
               ))}
             </GridLayout>

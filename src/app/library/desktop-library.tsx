@@ -15,9 +15,7 @@ const DesktopLibrary = () => {
       <PlayListContextProvider>
         <Header />
         <div className="">
-          <Provider>
             <PlaylistMain />
-          </Provider>
         </div>
       </PlayListContextProvider>
     </div>

@@ -16,17 +16,19 @@ const Playlist = async ({
 }: {
   params: { playlistID: string };
 }) => {
-  const data = await getPlaylist(playlistID);
+  const {data} = await getPlaylist(playlistID);
+
 
   if (!data) return <h4>An error has occured</h4>;
-  //For now i will be using library playlist
-  //But ideally the currentplayist should be fetched
+  console.log(data);
+  
+
   return (
     <div
       id="PlayListPage"
       className="playlist-page bg-gradient-to-b from-spotify-gray-300 from-10% via-spotify-black-900 via-40% to-spotify-black-200 to-80%  flex flex-col w-full min-h-[90vh]"
     >
-      <EditModalProvider fetchedPlayList={data}>
+      <EditModalProvider fetchedPlayList={data[0]}>
         <Header />
         <Main />
         <EditModal />

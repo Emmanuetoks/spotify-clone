@@ -15,7 +15,7 @@ interface WebPlayerContext {
   activeTrack: [AudioTrack | null, Dispatch<SetStateAction<AudioTrack | null>>];
   playerState: [boolean, Dispatch<SetStateAction<boolean>>];
   loadTrack: (track: AudioTrack) => void;
-  webPlayer: HTMLAudioElement;
+  player: [HTMLAudioElement | null, Dispatch<SetStateAction<HTMLAudioElement | null>>]
 }
 
 export type TActiveTrack = {
@@ -23,11 +23,18 @@ export type TActiveTrack = {
 } | null;
 
 const WebPlayerContextProvider = ({ children }: { children: ReactNode }) => {
-  const [currentTrack, setCurrentTrack] = useState<AudioTrack | null>(null);
+
+  //State to hold the currently playing track object
+  const [currentTrack, setCurrentTrack] = useState<AudioTrack | null>({name:"bomoboclat", uri:"/one-piece_opening-8-crazy-rainbow.mp3", next:"r8eohre", prev:"nwriuw", parentPlaylistId:"abc"});
+
+  //state to show if a track is currently playing or not
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const audio = new Audio('../assets/one-piece_opening-8-crazy-rainbow');
+
+  //Player state to hold the audio object
+  const [player, setPlayer] = useState<HTMLAudioElement | null>(null)
+
+  //State used to load the track, i.e to set the currentTRack state to a TRACK Object
   const loadTrack = (track: AudioTrack) => {
-    audio.src = track.uri;
     setCurrentTrack(track)
   };
 
@@ -35,8 +42,10 @@ const WebPlayerContextProvider = ({ children }: { children: ReactNode }) => {
     activeTrack: [currentTrack, setCurrentTrack],
     playerState: [isPlaying, setIsPlaying],
     loadTrack,
-    webPlayer: audio,
+    player:[player, setPlayer]
   };
+
+
   return (
     <webPlayerContext.Provider value={contextValue}>
       {children}

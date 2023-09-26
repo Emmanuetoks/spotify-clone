@@ -10,6 +10,7 @@ import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { nanoid } from "nanoid";
 import { TPlayList } from "../../types/playlist";
 import ArtistCard from "@/components/cards/artist-card";
+import ReactQueryProvider from "./react-query-provider";
 
 //Fetch some of the data for the playlist  i think the limit is 10
 //I will send an array of the category playlist
@@ -18,9 +19,9 @@ type Result = ({
   name: string;
   id?: string;
 } & (
-  | { type: "category"; playlists: TPlayList[] }
-  | { type: "other"; items: any[] }
-))[];
+    | { type: "category"; playlists: TPlayList[] }
+    | { type: "other"; items: any[] }
+  ))[];
 
 const getHomeFeed = async () => {
   const response = await fetch("http://localhost:4000/api/v1/users/feed");
@@ -32,31 +33,32 @@ const getHomeFeed = async () => {
 };
 const Home = async () => {
   const data: Result = (await getHomeFeed()).data;
-if (!data) return <h3>An error has occured</h3>
+  if (!data) return <h3>An error has occured</h3>
+
   return (
-    <div className="home space-y-8 px-7 py-5 min-h-[90vh]">
-      <Suspense fallback={<p>Hello</p>}>
-        {data.map((el) => (
-          <SectionRow
-            key={el.name}
-            sectionID={el.id as string}
-            sectionName={el.name}
-          >
-            {el.type === "category" &&
-              el.playlists.map((el) => {
-                switch (el.type) {
-                  case "playlist":
-                    return <SongCard key={el.description} data={el} />;
-                  case "artist":
-                    return <ArtistCard />;
-                  default:
-                    return null;
-                }
-              })}
-          </SectionRow>
-        ))}
-      </Suspense>
-    </div>
+      <div className="home space-y-8 px-7 py-5 min-h-[90vh]">
+        <Suspense fallback={<p>Hello</p>}>
+          {data.map((el) => (
+            <SectionRow
+              key={el.name}
+              sectionID={el.id as string}
+              sectionName={el.name}
+            >
+              {el.type === "category" &&
+                el.playlists.map((el) => {
+                  switch (el.type) {
+                    case "playlist":
+                      return <SongCard key={el.description} data={el} />;
+                    case "artist":
+                      return <ArtistCard />;
+                    default:
+                      return null;
+                  }
+                })}
+            </SectionRow>
+          ))}
+        </Suspense>
+      </div>
   );
 };
 

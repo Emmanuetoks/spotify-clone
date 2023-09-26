@@ -10,14 +10,11 @@ export type ActiveTrack = {
     previous:string;
 }
 
-
 export type HomeSection = {
     name:string;
     sourceID:string;
     contents: ContentCard[];
 }
-
-
 
 export type ContentCard = {
     name:string;
@@ -30,4 +27,5 @@ export type AudioTrack = {
     uri:string;
     next:string;
     prev:string;
+    parentPlaylistId:string;
     }

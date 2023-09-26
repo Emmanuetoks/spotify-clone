@@ -26,12 +26,12 @@ function PlayListContextProvider({ children }: { children: React.ReactNode }) {
     null
   );
 
-const [playlists, dispatch] = useReducer<any>(LibraryReducer, [{name:"Dummy", id:"  eouejioer", description:'rrrrt', owner:{display_name:'tooks'}      }]                 );
+const [libPlaylists, dispatch] = useReducer<any>(LibraryReducer, [{name:"Dummy", id:"eouejioer", description:'rrrrt', owner:{display_name:'tooks'}}]                 );
 
   return (
     <PlayListContext.Provider
       value={{
-        libraryPlaylists: [playlists as TPlayList[], dispatch],
+        libraryPlaylists: [libPlaylists as TPlayList[], dispatch],
         playlistInView: [fetchedPlaylist, setFetchedPlaylist],
       }}
     >

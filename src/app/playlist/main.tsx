@@ -17,7 +17,7 @@ const Main = () => {
     <main className="playlist__main w-full flex-grow p-7">
       <div className="space-y-3">
         <div className="flex items-center gap-4">
-          <SpotifyPlayBtn trackSource={playlistInView?.id} />
+          <SpotifyPlayBtn parentPlaylistId={playlistInView?.id} />
           <LikeBtn />
           <PlayListOptions />
         </div>

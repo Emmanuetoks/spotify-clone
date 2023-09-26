@@ -17,6 +17,9 @@ const Header = () => {
   const userName = useAuth().user.name;
   const [libraryPlayLists] = usePlayLists().libraryPlaylists;
   const [playlistInView] = usePlayLists().playlistInView;
+  console.log(playlistInView + "WHa is going on!!!!");
+  
+  // 
   return (
     <Suspense>
       <header className="playlist__header pt-20 pb-3 px-7 w-full">

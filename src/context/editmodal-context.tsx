@@ -24,15 +24,15 @@ export const EditModalProvider = ({
   fetchedPlayList: TPlayList;
 }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-
   const closeModal: () => void = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
-  const {
-    playlistInView: [, setPlaylistInView],
-  } = usePlayLists();
+  const  [playlistInView, setPlaylistInView] = usePlayLists().playlistInView;
+console.log(fetchedPlayList);
+
+  console.log(" PLaylist in view value" + playlistInView);
   useEffect(() => {
     setPlaylistInView(fetchedPlayList);
-  }, [fetchedPlayList, setPlaylistInView]);
+  }, [fetchedPlayList]);
   return (
     <EditModalContext.Provider value={{ openModal, closeModal, modalOpen }}>
       {children}
