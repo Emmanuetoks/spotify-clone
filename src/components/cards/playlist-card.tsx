@@ -26,7 +26,7 @@ type Props = {
 
 const PlaylistCard = ({ data }: Props) => {
   return (
-    <div className="relative group bg-spotify-black-600 h-full hover:bg-spotify-black-400 w-full rounded-md active:bg-[#000] sp-playlist-card">
+    <div className={`relative group bg-spotify-black-600 h-full hover:bg-spotify-black-400 w-full rounded-md active:bg-[#000] sp-playlist-card ${useWebPlayerContext().activeTrack[0]?.parentPlaylistId === data.id ? 'bg-spotify-black-700': null}`}>
       <Link href={`/playlist/${data.id}`}>
         <figure
           className={`home-ps-card min-w-[5rem] max-w-[25rem] sm:min-w-none sm:max-w-none rounded-md space-y-3 sm:p-4 sm:w-full transition cursor-pointer flex-grow flex-shrink h-full ${
@@ -52,9 +52,9 @@ const PlaylistCard = ({ data }: Props) => {
       </Link>
       <SpotifyPlayBtn
         parentPlaylistId={data.id}
-        firstTrack={{ name: "" , uri: "/one-piece_opening-8-crazy-rainbow.mp3", next: 'ukdhod', prev:'odio', parentPlaylistId:"abc"}}
+        firstTrack={{ name: "" , uri: "/one-piece_opening-8-crazy-rainbow.mp3", next: 'ukdhod', prev:'odio', parentPlaylistId:data.id}}
         className={`absolute top-[45%] right-4 transition ${
-          useWebPlayerContext().activeTrack[0]?.uri === data.id
+          useWebPlayerContext().activeTrack[0]?.parentPlaylistId === data.id
             ? "opacity-100"
             : "opacity-0 translate-y-3 group-hover:opacity-100 group-hover:-translate-y-0"
         }`}

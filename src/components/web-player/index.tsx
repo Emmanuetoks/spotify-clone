@@ -5,19 +5,19 @@ import PlayerControls from "./player-controls";
 import OtherControls from "./other-controls";
 import { useWebPlayerContext } from "@/context/web-player-context";
 
+export let player:HTMLAudioElement;
 const WebPlayer = () => {
-  const audioObject = useRef(null)
+  const audioObject = useRef<HTMLAudioElement | null>(null)
   const [track, setTrack] = useWebPlayerContext().activeTrack
-  const [player, setPlayer] = useWebPlayerContext().player
   useEffect(() => {
-    setPlayer(audioObject.current)
+    player = audioObject.current as HTMLAudioElement;
   }, [audioObject.current])
   return (
     <div className="bg-black flex-grow flex justify-between p-4">
       <NowPlayWidget />
       <PlayerControls />
       <OtherControls />
-      <audio ref={audioObject}>
+      <audio ref={audioObject} controls>
         <source src={track?.uri} type="audio/mpeg" />
       </audio>
     </div>

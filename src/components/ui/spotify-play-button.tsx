@@ -6,6 +6,7 @@ import {
 import React, { Suspense } from "react";
 import { BiPause, BiPlay } from "react-icons/bi";
 import { AudioTrack } from "../../../types";
+import { player } from "../web-player";
 type Props = {
   className?: string;
   parentPlaylistId?: string;
@@ -34,17 +35,18 @@ const SpotifyPlayBtn = ({
 
   //Audio Player OBject
 
-  const [player, setPlayer] = useWebPlayerContext().player;
 
   const handleClick = () => {
     if (!(activeTrack?.parentPlaylistId === parentPlaylistId)) {
       loadTrack(firstTrack);
+      setPlayPause((prevVal) => !prevVal);
       player?.play();
+      return;
     }
     //Toggle Play or pause
     setPlayPause((prevVal) => !prevVal);
-    isPlaying && player?.play();
-    !isPlaying && player?.pause();
+    isPlaying && player?.pause();
+    !isPlaying && player?.play();
   };
   const tailwindPossibles = [className];
   return (
@@ -55,7 +57,7 @@ const SpotifyPlayBtn = ({
       {!isPlaying ? (
         <BiPlay color="black" size={"100%"} />
       ) : (
-        <BiPause color="black" size={"100%"} />
+        <BiPause className=" mr-1" color="black" size={"100%"} />
       )}
     </button>
   );
