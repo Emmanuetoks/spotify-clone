@@ -16,7 +16,7 @@ export type PlayListInView = TPlayList;
 
 type TReducerAction = {
   type: string;
-  payload: TPlayList;
+  payload: TPlayList | TPlayList[];
 };
 
 type FetchedPlaylist = TPlayList | null;

@@ -9,6 +9,7 @@ export let player:HTMLAudioElement;
 const WebPlayer = () => {
   const audioObject = useRef<HTMLAudioElement | null>(null)
   const [track, setTrack] = useWebPlayerContext().activeTrack
+  const [, setPLayPause] = useWebPlayerContext().playerState
   useEffect(() => {
     player = audioObject.current as HTMLAudioElement;
   }, [audioObject.current])
@@ -17,7 +18,7 @@ const WebPlayer = () => {
       <NowPlayWidget />
       <PlayerControls />
       <OtherControls />
-      <audio ref={audioObject} controls>
+      <audio ref={audioObject} onEnded={() =>setPLayPause(false) }>
         <source src={track?.uri} type="audio/mpeg" />
       </audio>
     </div>

@@ -17,7 +17,7 @@ const Main = () => {
     <main className="playlist__main w-full flex-grow p-7">
       <div className="space-y-3">
         <div className="flex items-center gap-4">
-          <SpotifyPlayBtn parentPlaylistId={playlistInView?.id} />
+          <SpotifyPlayBtn playlistId={playlistInView?.id} firstTrack={{ name: "" , uri: "/one-piece_opening-8-crazy-rainbow.mp3", next: 'ukdhod', prev:'odio', parentPlaylistId:playlistInView?.id as string}}/>
           <LikeBtn />
           <PlayListOptions />
         </div>

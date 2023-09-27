@@ -27,7 +27,7 @@ const GridCard = ({ playlist }: Props) => {
           <figure
             className={`w-full grid-card relative rounded-md space-y-3 sm:p-4 sm:w-full transition hover:bg-[#1a1a1a] active:bg-[#000] cursor-pointer overflow-hidden`}
           >
-            <div className="cover w-full aspect-square bg-spotify-black-900 grid place-items-center rounded">
+            <div className="cover w-full aspect-square bg-spotify-black-900 grid place-items-center rounded relative">
               <SpImage images={playlist.images} />
             </div>
             <div className="details w-full">
@@ -47,9 +47,13 @@ const GridCard = ({ playlist }: Props) => {
           </figure>
         </Link>
         <SpotifyPlayBtn
-          parentPlaylistId={playlist.id}
-          firstTrack={{ name: "", uri:"/one-piece_opening-8-crazy-rainbow.mp3",next:"uwehe8w", prev:"7whew9he", parentPlaylistId:"abc"}}
-          className={`absolute top-[45%] right-4 transition `}
+          playlistId={playlist.id}
+          firstTrack={{ name: "", uri:"/one-piece_opening-8-crazy-rainbow.mp3",next:"uwehe8w", prev:"7whew9he", parentPlaylistId:playlist.id}}
+          className={`absolute top-[45%] right-4 transition ${
+            useWebPlayerContext().activeTrack[0]?.parentPlaylistId === playlist.id
+              ? "opacity-100"
+              : "opacity-0 translate-y-3 group-hover:opacity-100 group-hover:-translate-y-0"
+          }`}
         />
       </div>
 
@@ -60,7 +64,7 @@ const GridCard = ({ playlist }: Props) => {
           } overflow-hidden`}
       >
         <div className="sm:flex w-fit sm:w-auto flex-col sm:flex-row gap-3 p-2 hover:bg-[#191919]">
-          <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 user-playlist-cover rounded grid place-items-center shadow-[#101010] shadow-md">
+          <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 user-playlist-cover rounded grid place-items-center shadow-[#101010] shadow-md relative">
             <SpImage size="small" images={playlist.images} />
           </div>
 

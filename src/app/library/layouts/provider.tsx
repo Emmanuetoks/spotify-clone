@@ -22,12 +22,12 @@ const Manner = ({
   data,
   children,
 }: {
-  data: TPlayList;
+  data: any;
   children: React.ReactNode;
 }) => {
   const [, setPlaylist] = usePlayLists().libraryPlaylists;
   useEffect(() => {
-    setPlaylist({ type: "set", payload: data });
+    setPlaylist({ type: "set", payload: data.data });
   }, [setPlaylist, data]);
   return children;
 };

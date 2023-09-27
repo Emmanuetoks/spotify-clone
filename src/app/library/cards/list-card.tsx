@@ -22,7 +22,7 @@ const ListCard = ({ data}: Props) => {
         {/* Table Row */}
         <div className="table-cell p-2 rounded">
           <div className="flex flex-col sm:flex-row gap-3 rounded">
-            <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 list-layout-pcover rounded grid place-items-center shadow-[#101010] shadow-md">
+            <div className="w-24 sm:w-14 aspect-square bg-spotify-black-900 list-layout-pcover rounded grid place-items-center shadow-[#101010] shadow-md relative">
               <SpImage images={data.images} size="small"/>
             </div>
 

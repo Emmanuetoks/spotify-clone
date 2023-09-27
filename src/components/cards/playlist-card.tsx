@@ -51,7 +51,7 @@ const PlaylistCard = ({ data }: Props) => {
         {/* <Mobile /> */}
       </Link>
       <SpotifyPlayBtn
-        parentPlaylistId={data.id}
+        playlistId={data.id}
         firstTrack={{ name: "" , uri: "/one-piece_opening-8-crazy-rainbow.mp3", next: 'ukdhod', prev:'odio', parentPlaylistId:data.id}}
         className={`absolute top-[45%] right-4 transition ${
           useWebPlayerContext().activeTrack[0]?.parentPlaylistId === data.id
