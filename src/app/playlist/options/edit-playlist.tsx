@@ -3,7 +3,7 @@ import { useEditModalState } from "@/context/editmodal-context";
 
 
 const EditPlayList = () => {
-  const openModal = useEditModalState() as () => void;
+  const openModal = useEditModalState().openModal as any;
   //This components modal goes full screen in mobile viewports
   return (
     <button

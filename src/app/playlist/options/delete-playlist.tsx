@@ -17,13 +17,13 @@ const DeletePlayList = () => {
   const activePlayList= useParams() as TPlaylistSearchParam
 
   const [playlists, setPlayLists] = usePlayLists().libraryPlaylists 
-  const playListName = playlists.find(el => el.playlist_id === activePlayList.playlistID)?.name 
+  const playListName = playlists.find(el => el.id === activePlayList.playlistID)?.name 
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const router = useRouter()
   const deletePlayList: MouseEventHandler<HTMLButtonElement> = (e) => {
     const deleteAction: TReducerAction = {
       type: "delete",
-      payload: { playlist_id: activePlayList.playlistID as string},
+      payload: { name: "", id: activePlayList.playlistID as string},
     };
 
     setPlayLists(deleteAction);

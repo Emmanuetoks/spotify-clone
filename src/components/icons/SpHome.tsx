@@ -1,5 +1,5 @@
 import React from 'react'
-import { SpIcons } from '../../../types/SpIcons'
+import { SpIcons } from '../../../types/spIcons'
 
 
 

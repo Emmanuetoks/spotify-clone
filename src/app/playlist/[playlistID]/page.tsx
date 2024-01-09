@@ -3,7 +3,7 @@ import Main from "../main";
 import EditModal from "../edit-details-modal";
 import { EditModalProvider } from "@/context/editmodal-context";
 
-export const getPlaylist = async (playlistID: string) => {
+ const getPlaylist: (playlistID:string) => Promise<any> = async (playlistID: string) => {
   const response = await fetch(
     `http://localhost:4000/api/v1/playlists/${playlistID}`,
     { next: { revalidate: 600 } }
@@ -20,7 +20,6 @@ const Playlist = async ({
 
 
   if (!data) return <h4>An error has occured</h4>;
-  console.log(data);
   
 
   return (

@@ -13,6 +13,7 @@ import { player } from "@/components/web-player";
 const webPlayerContext = createContext<WebPlayerContext | null>(null);
 
 interface WebPlayerContext {
+  webPlayer: any;
   activeTrack: [AudioTrack | null, Dispatch<SetStateAction<AudioTrack | null>>];
   playerState: [boolean, Dispatch<SetStateAction<boolean>>];
   loadTrack: (track: AudioTrack) => void;
@@ -39,6 +40,7 @@ const WebPlayerContextProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const contextValue: WebPlayerContext = {
+    webPlayer:player,
     activeTrack: [currentTrack, setCurrentTrack],
     playerState: [isPlaying, setIsPlaying],
     loadTrack,
