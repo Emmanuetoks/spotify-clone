@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is a spotify-clone i built for practice purposes. It is not in anyway used for commercial purposes or attempts to impersonate the **Spotify** company. 
 
 ## Getting Started
+- Download the starter code included in this repository.
+- Download the starter code for the [backend](https://github.com/Emmanuetoks/spotify-clone-backend). The backend is required in order to fetch the data that will be displayed in the website.
+- Run the code in both the frontend and the backend by running```npm run dev``` in the terminal.
 
-First, run the development server:
+## How it Works
+The website was inspired from the [spotify music player](www.spotify.com) and works almost the same. You can create playlists by clicking on the add button in the **Your Library** section. This will create a new temporary playlist which bis not saved in the database. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Only the homepage includes a list of playlists linked to a playlist page that shows detailed information about each particular playlist.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The play button on each spotify playlist play the first song on each playlist
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The website has a web player that i built which works in tandem with the green button on each playlist card.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Video on how it works
 
-## Learn More
+![Video that shows how the website works](./public/example-video.mp4)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
