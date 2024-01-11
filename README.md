@@ -1,3 +1,4 @@
+### *Disclaimer*
 This project is a spotify-clone I built for practice. It is not in anyway used for commercial purposes or attempts to impersonate the original **Spotify** company. 
 
 ## Getting Started
@@ -6,11 +7,11 @@ This project is a spotify-clone I built for practice. It is not in anyway used f
 - Run the code in both the frontend and the backend by executing```npm run dev``` in the terminal.
 
 ## How it Works
-The website was inspired from the [spotify music player](https://open.spotify.com) and works almost the same. You can create playlists by clicking on the add button in the **Your Library** section. This will create a new temporary playlist which bis not saved in the database. 
+The website is inspired by the [spotify music player](https://open.spotify.com) website's design and has many of it's functionalities. You can create playlists by clicking on the add button in the **Your Library** section. This will create a new temporary playlist which will not be saved in a database. 
 
-Only the homepage includes a list of playlists linked to a playlist page that shows detailed information about each particular playlist.
+The homepage contains a list of playlists. Each playlist links to a page that shows detailed information about it. 
 
-The play button on each spotify playlist play the first song on each playlist
+The play button on each spotify playlist plays the first song on each playlist
 
 The website has a web player that i built which works in tandem with the green button on each playlist card.
 
