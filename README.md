@@ -1,4 +1,4 @@
-This project is a spotify-clone i built for practice purposes. It is not in anyway used for commercial purposes or attempts to impersonate the **Spotify** company. 
+This project is a spotify-clone I built for practice. It is not in anyway used for commercial purposes or attempts to impersonate the original **Spotify** company. 
 
 ## Getting Started
 - Download the starter code included in this repository.
